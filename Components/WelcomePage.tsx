@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, Image, View, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 
-export default class WelcomePage extends Component {
+class WelcomePage extends Component<NavigationInjectedProps> {
+  static navigationOptions = {
+    title: 'Welcome page',
+  };
+
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.welcomePageWrapper}>
         <Text style={styles.header}>POZNAJMY SIĘ</Text>
-        <TouchableOpacity style={styles.startButton}>
+        <TouchableOpacity
+          onPress={() => navigate('OptionsPage')}
+          style={styles.startButton}>
           <Text style={styles.startButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+export default withNavigation(WelcomePage);
 
 const styles = StyleSheet.create({
   header: {

@@ -1,32 +1,18 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import WelcomePage from './Components/WelcomePage';
+import OptionsPage from './Components/OptionsPage';
+import SpinPage from './Components/SpinPage';
+import QuestionPage from './Components/QuestionPage';
 
-declare var global: {HermesInternal: null | {}};
+const MainNavigator = createStackNavigator({
+  WelcomePage: {screen: WelcomePage},
+  OptionsPage: {screen: OptionsPage},
+  SpinPage: {screen: SpinPage},
+  QuestionPage: {screen: QuestionPage},
+});
 
-const App = () => {
-  return (
-    <>
-      <WelcomePage />
-    </>
-  );
-};
-
-const styles = StyleSheet.create({});
+const App = createAppContainer(MainNavigator);
 
 export default App;
