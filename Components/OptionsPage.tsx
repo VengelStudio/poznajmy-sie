@@ -35,7 +35,7 @@ class OptionsPage extends Component<NavigationInjectedProps> {
           </View>
         </View>
         <TouchableOpacity
-          onPress={() => navigate('OptionsPage')}
+          onPress={() => navigate('SpinPage')}
           style={styles.startButton}>
           <Text style={styles.startButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
