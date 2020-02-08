@@ -1,5 +1,6 @@
 # Poznajmy się
-A dead simple party game. 
+A Party game for a Polish community.
 
 ## How to run
+'npm install'
 `npm run android`
