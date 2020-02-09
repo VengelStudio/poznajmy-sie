@@ -1,26 +1,51 @@
 import React, {Component} from 'react';
 import {Text, Button, View, StyleSheet} from 'react-native';
-import {NavigationInjectedProps, withNavigation} from 'react-navigation';
+import {withNavigation, NavigationInjectedProps} from 'react-navigation';
+import withContext from './Context/ContextConsumerHOC';
+import {IGlobalState} from './Context/context';
 
-class SpinPage extends Component<NavigationInjectedProps> {
+interface SpinPageProps {
+  context: IGlobalState;
+}
+
+class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   static navigationOptions = {
     title: 'Spin',
   };
 
+  state = {
+    currentQuestion: null,
+  };
+
+  pickQuestion = () => {
+    if (this.props.context.questions.length > 0) {
+      const randomQuestion = this.props.context.questions[
+        Math.floor(Math.random() * this.props.context.questions.length)
+      ];
+
+      this.setState({currentQuestion: randomQuestion}, () => {
+        this.props.navigation.navigate('QuestionPage', {
+          question: this.state.currentQuestion,
+        });
+      });
+    }
+  };
+
   render() {
-    const {navigate} = this.props.navigation;
     return (
       <View style={styles.welcomePageWrapper}>
         <Text style={styles.header}>[spinner]</Text>
         <Button
           title="Losuj pytanie"
-          onPress={() => navigate('QuestionPage', {id: 10})}></Button>
+          onPress={() => {
+            this.pickQuestion();
+          }}></Button>
       </View>
     );
   }
 }
 
-export default withNavigation(SpinPage);
+export default withContext(withNavigation(SpinPage));
 
 const styles = StyleSheet.create({
   header: {

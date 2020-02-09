@@ -1,3 +1,4 @@
+import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
@@ -5,7 +6,9 @@ import WelcomePage from './Components/WelcomePage';
 import OptionsPage from './Components/OptionsPage';
 import SpinPage from './Components/SpinPage';
 import QuestionPage from './Components/QuestionPage';
-
+import {Question} from './Components/Utilities/data.interface';
+import questionsRaw from './Assets/Data/questions.json';
+import {AppContext, IGlobalState} from './Components/Context/context';
 const MainNavigator = createStackNavigator(
   {
     WelcomePage: {screen: WelcomePage},
@@ -14,11 +17,25 @@ const MainNavigator = createStackNavigator(
     QuestionPage: {screen: QuestionPage},
   },
   {
-    header: null,
-    headerMode: 'none',
+    navigationOptions: {
+      header: null,
+      headerMode: 'none',
+    },
   },
 );
 
 const App = createAppContainer(MainNavigator);
 
-export default App;
+let initialState = {
+  questions: questionsRaw as Question[],
+} as IGlobalState;
+
+const wrappedApp = () => {
+  return (
+    <AppContext.Provider value={initialState}>
+      <App />
+    </AppContext.Provider>
+  );
+};
+
+export default wrappedApp;

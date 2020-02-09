@@ -9,26 +9,17 @@ import {
   Image,
 } from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
+import {Question} from './Utilities/data.interface';
 
 class QuestionPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
     title: 'Question page',
   };
 
-  componentDidMount() {
-    // Alert.alert(
-    //   'Alerte',
-    //   'My Alert Msg',
-    //   [
-    //     {
-    //       text: `Question of id ${
-    //         (this.props.navigation.state.params as any).id
-    //       }`,
-    //       onPress: () => console.log('OK Pressed'),
-    //     },
-    //   ],
-    //   {cancelable: true},
-    // );
+  get questionText() {
+    const question: Question = (this.props.navigation.state.params as any)
+      .question;
+    return question.text;
   }
 
   render() {
