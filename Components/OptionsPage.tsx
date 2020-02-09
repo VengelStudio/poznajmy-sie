@@ -3,19 +3,24 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Alert,
   Switch,
-  Picker,
   StyleSheet,
 } from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
+import {CustomPicker} from 'react-native-custom-picker';
 
 class OptionsPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
     title: 'Game options',
   };
+  state = {
+    numberOfPeople: 2,
+  };
 
   render() {
     const {navigate} = this.props.navigation;
+    const pickerOptions = [1, 2, 3, 4, 5, 6];
     return (
       <View style={styles.welcomePageWrapper}>
         <Text style={styles.header}>OPCJE</Text>
@@ -26,16 +31,21 @@ class OptionsPage extends Component<NavigationInjectedProps> {
           </View>
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Liczba osób</Text>
-            <Picker
-              style={styles.numberPicker}
-              itemStyle={styles.numberPickerItem}>
-              <Picker.Item label="1" value={1} />
-              <Picker.Item label="2" value={2} />
-            </Picker>
+            <CustomPicker
+              placeholder={'2'}
+              options={pickerOptions}
+              onValueChange={value => {
+                this.setState({numberOfPeople: value});
+              }}
+            />
           </View>
         </View>
         <TouchableOpacity
-          onPress={() => navigate('SpinPage')}
+          onPress={() =>
+            this.props.navigation.navigate('SpinPage', {
+              numberOfPeople: this.state.numberOfPeople,
+            })
+          }
           style={styles.startButton}>
           <Text style={styles.startButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
