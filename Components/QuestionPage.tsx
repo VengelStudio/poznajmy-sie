@@ -32,7 +32,7 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         />
         <View style={styles.questionWrapper}>
           <Text style={styles.questionHeader}>Pytanie dla: $kolor</Text>
-          <Text style={styles.question}>Dupa dupa dupa dupa dupa</Text>
+          <Text style={styles.question}>{this.questionText}</Text>
         </View>
         <TouchableOpacity
           onPress={() => navigate('SpinPage')}

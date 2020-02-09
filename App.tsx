@@ -17,9 +17,9 @@ const MainNavigator = createStackNavigator(
     QuestionPage: {screen: QuestionPage},
   },
   {
+    headerMode: 'none',
     navigationOptions: {
-      header: null,
-      headerMode: 'none',
+      headerVisible: false,
     },
   },
 );
