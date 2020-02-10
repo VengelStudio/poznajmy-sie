@@ -1,3 +1,5 @@
 rootProject.name = 'poznajmy_sie'
+include ':react-native-number-picker-ultra'
+project(':react-native-number-picker-ultra').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-number-picker-ultra/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

@@ -67,7 +67,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
         .arc<PieArcDatum<any>>()
         .outerRadius(pieSize / 2 - 25)
         .padAngle(0)
-        .innerRadius(0)(pie);
+        .innerRadius(30)(pie);
 
       return {
         paths,
