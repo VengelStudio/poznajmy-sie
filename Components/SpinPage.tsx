@@ -32,7 +32,7 @@ interface SpinPageProps {
   context: IGlobalState;
 }
 
-interface IWheelPie {
+export interface IWheelPie {
   paths: string;
   color: string;
   startAngle: number;
@@ -42,7 +42,24 @@ interface State {
   currentQuestion: null | Question;
   spinValue: Animated.Value;
   wheelData: IWheelPie[];
+  isAnimationFinished: boolean;
 }
+
+const getRandomSpinValue = () => {
+  const val = Math.random() * (1 - 0.25) + 0.25;
+  return val;
+};
+
+const getWinnerColor = (value: number, wheelData: IWheelPie[]) => {
+  const rawAngle = value * 6 * Math.PI;
+  const cleanAngle = rawAngle % (2 * Math.PI);
+
+  for (let i = wheelData.length - 1; i >= 0; i--) {
+    if (2 * Math.PI - cleanAngle >= wheelData[i].startAngle) {
+      return wheelData[i];
+    }
+  }
+};
 
 class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   static navigationOptions = {
@@ -53,6 +70,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     currentQuestion: null,
     spinValue: new Animated.Value(0),
     wheelData: [],
+    isAnimationFinished: true,
   } as State;
 
   constructor(props: any) {
@@ -78,32 +96,40 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   }
 
   pickQuestion = () => {
-    Animated.decay(this.state.spinValue, {velocity: 2, deceleration: 0.5});
+    if (this.state.isAnimationFinished) {
+      this.setState({isAnimationFinished: false});
 
-    Animated.timing(this.state.spinValue, {
-      toValue: 1,
-      duration: 5000,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: true,
-    }).start();
+      Animated.decay(this.state.spinValue, {velocity: 3, deceleration: 0.5});
 
-    setTimeout(() => {
-      if (this.props.context.questions.length > 0) {
-        const currentQuestion = getRandomQuestion(this.props.context.questions);
+      const toValue = getRandomSpinValue();
 
-        this.setState({currentQuestion}, () => {
-          this.props.navigation.navigate('QuestionPage', {
-            question: this.state.currentQuestion,
+      Animated.timing(this.state.spinValue, {
+        toValue,
+        duration: 4000,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }).start(() => {
+        this.setState({isAnimationFinished: true});
+        if (this.props.context.questions.length > 0) {
+          const currentQuestion = getRandomQuestion(
+            this.props.context.questions,
+          );
+          this.setState({currentQuestion}, () => {
+            this.setState({spinValue: new Animated.Value(0)});
+            this.props.navigation.navigate('QuestionPage', {
+              question: this.state.currentQuestion,
+              winner: getWinnerColor(toValue, this.state.wheelData),
+            });
           });
-        });
-      }
-    }, 5000);
+        }
+      });
+    }
   };
 
   render() {
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', '360deg'],
+      outputRange: ['0deg', '1080deg'],
     });
 
     const x = pieSize / 2;

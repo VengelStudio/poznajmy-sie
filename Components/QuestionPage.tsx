@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
+import {IWheelPie} from './SpinPage';
 
 class QuestionPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
@@ -22,6 +23,10 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return question.text;
   }
 
+  get winner() {
+    return (this.props.navigation.state.params as any).winner as IWheelPie;
+  }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -31,7 +36,10 @@ class QuestionPage extends Component<NavigationInjectedProps> {
           source={require('../Assets/questionMark.png')}
         />
         <View style={styles.questionWrapper}>
-          <Text style={styles.questionHeader}>Pytanie dla: $kolor</Text>
+          <Text style={styles.questionHeader}>
+            Pytanie dla:{' '}
+            <Text style={{backgroundColor: this.winner.color}}>WINNNNNER</Text>
+          </Text>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
         <TouchableOpacity
