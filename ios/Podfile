@@ -34,6 +34,8 @@ target 'poznajmy_sie' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNNumberPickerLibrary', :path => '../node_modules/react-native-number-picker-ultra'
+
   target 'poznajmy_sieTests' do
     inherit! :search_paths
     # Pods for testing

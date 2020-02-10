@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Alert,
-  Switch,
-  StyleSheet,
-} from 'react-native';
+import {Text, TouchableOpacity, View, Switch, StyleSheet} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
-import {CustomPicker} from 'react-native-custom-picker';
+import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 
 class OptionsPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
@@ -18,9 +11,39 @@ class OptionsPage extends Component<NavigationInjectedProps> {
     numberOfPeople: 2,
   };
 
+  onPickerPeoplePress = () => {
+    RNNumberPickerLibrary.createDialog(
+      {
+        minValue: 2,
+        maxValue: 20,
+        selectedValue: this.state.numberOfPeople,
+        doneText: 'Done',
+        doneTextColor: '#000000', // only for Android
+        cancelText: 'Cancel',
+        cancelTextColor: '#000000', // only for Android
+      },
+      // done click
+      (error: any, data: any) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(data);
+          this.setState({numberOfPeople: parseInt(data) - 1});
+        }
+      },
+      // cancel click
+      (error: any, data: any) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(data);
+        }
+      },
+    );
+  };
+
   render() {
     const {navigate} = this.props.navigation;
-    const pickerOptions = [1, 2, 3, 4, 5, 6];
     return (
       <View style={styles.welcomePageWrapper}>
         <Text style={styles.header}>OPCJE</Text>
@@ -31,18 +54,16 @@ class OptionsPage extends Component<NavigationInjectedProps> {
           </View>
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Liczba osób</Text>
-            <CustomPicker
-              placeholder={'2'}
-              options={pickerOptions}
-              onValueChange={value => {
-                this.setState({numberOfPeople: value});
-              }}
-            />
+            <TouchableOpacity onPress={this.onPickerPeoplePress}>
+              <Text style={styles.optionsTextNumber}>
+                {this.state.numberOfPeople}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
         <TouchableOpacity
           onPress={() =>
-            this.props.navigation.navigate('SpinPage', {
+            navigate('SpinPage', {
               numberOfPeople: this.state.numberOfPeople,
             })
           }
@@ -67,7 +88,7 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   numberPicker: {
     fontSize: 30,
@@ -79,13 +100,18 @@ const styles = StyleSheet.create({
   optionsLabel: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignContent: 'center',
+    alignItems: 'center',
     marginBottom: 40,
   },
   optionsText: {
     fontSize: 40,
     fontFamily: 'simplifica',
     color: '#4392F1',
+  },
+  optionsTextNumber: {
+    fontSize: 40,
+    fontFamily: 'simplifica',
+    marginLeft: 20,
   },
   welcomePageWrapper: {
     flex: 1,
