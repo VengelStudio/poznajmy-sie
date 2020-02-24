@@ -27,10 +27,22 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return (this.props.navigation.state.params as any).winner as IWheelPie;
   }
 
+  welcomeWrapperStyles() {
+    return {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      borderStyle: 'solid',
+      borderColor: this.winner.color,
+      borderWidth: 6,
+    };
+  }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View style={styles.welcomePageWrapper}>
+      <View style={this.welcomeWrapperStyles()}>
         <Image
           style={{width: 100, height: 100, marginTop: 80}}
           source={require('../Assets/questionMark.png')}
@@ -38,7 +50,12 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <View style={styles.questionWrapper}>
           <Text style={styles.questionHeader}>
             Pytanie dla:{' '}
-            <Text style={{backgroundColor: this.winner.color}}>WINNNNNER</Text>
+            <View
+              style={{
+                backgroundColor: this.winner.color,
+                width: 80,
+                height: 40,
+              }}></View>
           </Text>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
@@ -65,6 +82,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderStyle: 'solid',
+    borderWidth: 4,
   },
   questionWrapper: {
     justifyContent: 'center',
@@ -72,7 +91,10 @@ const styles = StyleSheet.create({
     marginBottom: 80,
   },
   question: {
-    fontFamily: 'simplifica',
+    fontFamily: 'arial',
+    marginTop: 50,
+    padding: 3,
+    textAlign: 'center',
     fontSize: 30,
   },
   startButton: {

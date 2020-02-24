@@ -76,6 +76,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   constructor(props: any) {
     super(props);
     const numberOfPeople = this.props.navigation.state.params.numberOfPeople;
+    const tabu = this.props.navigation.state.params.tabu;
     const data = new Array(numberOfPeople).fill(1); //This 5 is number of people which user choosed in options
 
     const pieChart = d3.shape.pie()(data);

@@ -9,6 +9,7 @@ class OptionsPage extends Component<NavigationInjectedProps> {
   };
   state = {
     numberOfPeople: 2,
+    tabu: false,
   };
 
   onPickerPeoplePress = () => {
@@ -42,6 +43,12 @@ class OptionsPage extends Component<NavigationInjectedProps> {
     );
   };
 
+  turnOnTabuQuestions = () => {
+    !this.state.tabu
+      ? this.setState({tabu: true})
+      : this.setState({tabu: false});
+  };
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -50,7 +57,9 @@ class OptionsPage extends Component<NavigationInjectedProps> {
         <View style={styles.options}>
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Pytania tabu?</Text>
-            <Switch></Switch>
+            <Switch
+              onValueChange={this.turnOnTabuQuestions}
+              value={this.state.tabu}></Switch>
           </View>
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Liczba osób</Text>
@@ -65,6 +74,7 @@ class OptionsPage extends Component<NavigationInjectedProps> {
           onPress={() =>
             navigate('SpinPage', {
               numberOfPeople: this.state.numberOfPeople,
+              tabu: this.state.tabu,
             })
           }
           style={styles.startButton}>
