@@ -10,12 +10,12 @@
     "isTabu": true
   },
   {
-    "text": "Kiedy ostatni raz śpiewałeś i ktoś cię słuchał?",
+    "text": "Kiedy ostatni raz śpiewałeś i ktoś Cię słyszał?",
     "probability": 1,
     "isTabu": true
   },
   {
-    "text": "Co robisz gdy zauważasz, że ktoś cię obserwuje?",
+    "text": "Co robisz gdy zauważasz, że ktoś Cię obserwuje?",
     "probability": 1,
     "isTabu": true
   },
@@ -90,7 +90,7 @@
     "isTabu": true
   },
   {
-    "text": "Wolałbyś być brzydki, ale wierzyć w to że jesteś idealnej urody czy odwrotnie?",
+    "text": "Wolałbyś być brzydki/a ale myśleć że jesteś ładny/a, czy odwrotnie?",
     "probability": 1,
     "isTabu": true
   },
@@ -112,7 +112,7 @@
     "isTabu": true
   },
   {
-    "text": "Wysyłałeś kiedyś swoje nagie zdjęcia komukolwiek?",
+    "text": "Czy kiedykolwiek wysyłałeś/aś swoje nagie zdjęcia/filmy?",
     "probability": 1,
     "isTabu": true
   },
@@ -317,7 +317,7 @@
     "isTabu": true
   },
   {
-    "text": "Czy udajesz czasami, że słuchasz kogoś kto opowiada ci bardzo nudną rzecz?",
+    "text": "Czy udajesz czasami, że kogoś słuchasz?",
     "probability": 1,
     "isTabu": true
   },
@@ -431,7 +431,232 @@
     "isTabu": true
   },
   {
-    "text": "Czy miałeś w życiu kogoś, kogo nazwałbyś swoim „mistrzem”?",
+    "text": "Czy miałeś w życiu kogoś, kogo nazwałbyś swoim „mentorem”?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Czy chciałbyś lub miałeś one-night standa?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy myślałaś kiedyś że jesteś w ciąży/czy myślałeś kiedyś że twoja partnerka zaszła w ciążę?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś seks bez zabezpieczenia?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś seks w miejscu publicznym?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś seks w pokoju gdzie ktoś jeszcze był?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy zrobiłeś kiedyś striptiz przed swoim partnerem?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy wysłałeś komuś nagie zdjęcia?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś seks analny?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kiedykolwiek uprawiałeś albo chciałeś uprawiać seks w trójkącie?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy posiadasz jakieś gadżety erotyczne?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kiedykolwiek kupiłeś coś w sex-shopie?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy golisz się między nogami?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś seks podczas okresu?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Jakie jest najdziwniejsze miejsce w którym uprawiałeś seks?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy byłeś w klubie ze striptizem?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy nagrałeś kiedyś swój seks?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy miałeś erotyczny sen z kimś z graczy?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy fantazjowałeś kiedyś o seksie z osobą tej samej płci?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Do jakich rzeczy (filmów, zdjęć) najczęściej się masturbujesz?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kiedykolwiek przymierzałeś ubrania płci przeciwnej?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy zdradziłeś lub miałeś ochotę zdradzić swojego partnera?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Jaka jest twoja najdziwniejsze fantazja erotyczna?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Co najdziwniejszego Cię podnieciło?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Z którym ze swoich nauczycieli/wykładowców chciałbyś uprawiać seks?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy często przeglądasz się nago w lustrze?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Jaki ubiór Cię kręci?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Wolisz już nigdy nie uprawiać seksu, czy już nigdy nic nie mówić?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uprawiałeś kiedyś seks przed lustrem?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Jaki rodzaj tańca Cię kręci?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy oglądałeś kiedyś hentai?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy masz jakiś fetysz, a jeśli tak to jaki?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Co chciałbyś zlizywać z partnera/partnerki?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy fantazjowałaś/eś kiedyś o ciąży?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kręci Cię niedoświadczony partner?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kręcą Cię pytania z podtekstem?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kręci Cię bycie zdominowanym?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Czy gadałeś/aś do siebie myśląc że nikt Cię nie usłyszy, ale okazało się inaczej?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Czy skłamałeś/aś kiedyś w tej grze?",
+    "probability": 0.1,
+    "isTabu": false
+  },
+  {
+    "text": "Najdziwniejsza sytuacja, w której się zsikałeś/aś?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Kto z graczy ostatnio Cię zdenerwował?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Czy kiedykolwiek zrobiłeś/aś komuś poważną krzywdę?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Czy masz w swoim życiu kogoś, kogo możesz nazwać swoim dementorem?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Kogo z obecnych tu osób myśli chciałbyś poznać?",
+    "probability": 1,
+    "isTabu": false
+  },
+  {
+    "text": "Czy masz na ciele pieprzyk z włosem?",
+    "probability": 1,
+    "isTabu": true
+  },
+  {
+    "text": "Jaki jest najdziwniejszy dźwięk jaki słyszałeś?",
     "probability": 1,
     "isTabu": true
   }
