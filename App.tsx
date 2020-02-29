@@ -24,18 +24,35 @@ const MainNavigator = createStackNavigator(
   },
 );
 
-const App = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(MainNavigator);
 
-let initialState = {
-  questions: questionsRaw as Question[],
-} as IGlobalState;
+const questions = questionsRaw as Question[];
 
-const wrappedApp = () => {
-  return (
-    <AppContext.Provider value={initialState}>
-      <App />
-    </AppContext.Provider>
-  );
-};
+class App extends React.Component {
+  filterQuestions = (allowTabu: boolean) => {
+    if (allowTabu) {
+      this.setState({filteredQuestions: questions});
+    } else {
+      const filteredQuestions = questions.filter(question => {
+        return question.isTabu === false;
+      });
+      this.setState({filteredQuestions});
+    }
+  };
 
-export default wrappedApp;
+  state = {
+    questions,
+    filteredQuestions: questions,
+    filterQuestions: this.filterQuestions,
+  } as IGlobalState;
+
+  render() {
+    return (
+      <AppContext.Provider value={this.state}>
+        <AppContainer />
+      </AppContext.Provider>
+    );
+  }
+}
+
+export default App;
