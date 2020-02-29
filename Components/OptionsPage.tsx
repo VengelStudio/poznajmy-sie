@@ -2,8 +2,16 @@ import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, Switch, StyleSheet} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
+import {IGlobalState} from './Context/context';
+import withContext from './Context/ContextConsumerHOC';
 
-class OptionsPage extends Component<NavigationInjectedProps> {
+interface OptionsPageProps {
+  context: IGlobalState;
+}
+
+class OptionsPage extends Component<
+  NavigationInjectedProps & OptionsPageProps
+> {
   static navigationOptions = {
     title: 'Game options',
   };
@@ -43,10 +51,12 @@ class OptionsPage extends Component<NavigationInjectedProps> {
     );
   };
 
-  turnOnTabuQuestions = () => {
+  toggleTabu = () => {
     !this.state.tabu
       ? this.setState({tabu: true})
       : this.setState({tabu: false});
+
+    this.props.context.filterQuestions(!this.state.tabu);
   };
 
   render() {
@@ -58,7 +68,7 @@ class OptionsPage extends Component<NavigationInjectedProps> {
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Pytania tabu?</Text>
             <Switch
-              onValueChange={this.turnOnTabuQuestions}
+              onValueChange={this.toggleTabu}
               value={this.state.tabu}></Switch>
           </View>
           <View style={styles.optionsLabel}>
@@ -85,7 +95,7 @@ class OptionsPage extends Component<NavigationInjectedProps> {
   }
 }
 
-export default withNavigation(OptionsPage);
+export default withContext(OptionsPage);
 
 const styles = StyleSheet.create({
   header: {
