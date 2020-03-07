@@ -23,6 +23,8 @@ import {
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 
+let s = require('./Shared/Styles');
+
 const {Surface, Group, Shape} = ART;
 
 const d3 = {
@@ -164,8 +166,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           onPress={() => {
             this.pickQuestion();
           }}
-          style={styles.playButton}>
-          <Text style={styles.playButtonText}>Losuj pytanie</Text>
+          style={s.Button}>
+          <Text style={s.ButtonText}>LOSUJ PYTANIE</Text>
         </TouchableOpacity>
       </View>
     );

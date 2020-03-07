@@ -5,6 +5,8 @@ import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 import {IGlobalState} from './Context/context';
 import withContext from './Context/ContextConsumerHOC';
 
+let s = require('./Shared/Styles');
+
 interface OptionsPageProps {
   context: IGlobalState;
 }
@@ -63,7 +65,9 @@ class OptionsPage extends Component<
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.welcomePageWrapper}>
-        <Text style={styles.header}>OPCJE</Text>
+        <View style={styles.upperBar}>
+          <Text style={styles.header}>OPCJE</Text>
+        </View>
         <View style={styles.options}>
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Pytania tabu?</Text>
@@ -87,8 +91,8 @@ class OptionsPage extends Component<
               tabu: this.state.tabu,
             })
           }
-          style={styles.startButton}>
-          <Text style={styles.startButtonText}>ROZPOCZNIJ</Text>
+          style={s.Button}>
+          <Text style={s.ButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
       </View>
     );
@@ -100,11 +104,18 @@ export default withContext(OptionsPage);
 const styles = StyleSheet.create({
   header: {
     fontFamily: 'babasNeue',
-    marginTop: 60,
     fontSize: 60,
-    color: '#D30C7B',
+    color: 'white',
+  },
+  upperBar: {
+    width: '100%',
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#D30C7B',
   },
   options: {
+    marginTop: 70,
     flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -127,6 +138,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: 'simplifica',
     color: '#4392F1',
+    marginRight: 70,
   },
   optionsTextNumber: {
     fontSize: 40,
@@ -138,20 +150,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  startButton: {
-    display: 'flex',
-    height: '8%',
-    width: '50%',
-    backgroundColor: '#4392F1',
-    borderRadius: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 60,
-  },
-  startButtonText: {
-    fontFamily: 'simplifica',
-    fontSize: 30,
-    color: 'white',
   },
 });
