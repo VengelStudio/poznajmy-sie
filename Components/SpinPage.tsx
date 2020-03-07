@@ -16,7 +16,11 @@ import * as scale from 'd3-scale';
 import * as shape from 'd3-shape';
 import {PieArcDatum} from 'd3-shape';
 import {Question} from './Utilities/data.interface';
-import {getRandomColor, getRandomQuestion} from './Utilities/methods';
+import {
+  getRandomColor,
+  getRandomQuestion,
+  getWheelColor,
+} from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 
 const {Surface, Group, Shape} = ART;
@@ -81,7 +85,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
     const pieChart = d3.shape.pie()(data);
 
-    this.state.wheelData = pieChart.map(pie => {
+    this.state.wheelData = pieChart.map((pie, i) => {
       const paths = d3.shape
         .arc<PieArcDatum<any>>()
         .outerRadius(pieSize / 2 - 25)
@@ -90,7 +94,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
       return {
         paths,
-        color: getRandomColor(),
+        color: getWheelColor(i),
         startAngle: pie.startAngle,
       } as IWheelPie;
     });
@@ -111,10 +115,16 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
         useNativeDriver: true,
       }).start(() => {
         this.setState({isAnimationFinished: true});
-        if (this.props.context.questions.length > 0) {
-          const currentQuestion = getRandomQuestion(
-            this.props.context.questions,
-          );
+
+        const {
+          filteredQuestions,
+          incrementCurrentQuestionId,
+        } = this.props.context;
+
+        if (filteredQuestions.length > 0) {
+          const currentQuestion = getRandomQuestion(this.props.context);
+          incrementCurrentQuestionId();
+
           this.setState({currentQuestion}, () => {
             this.setState({spinValue: new Animated.Value(0)});
             this.props.navigation.navigate('QuestionPage', {
