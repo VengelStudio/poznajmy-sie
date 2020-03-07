@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 50,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderBottomColor: '#4a4a4a',
+    borderBottomColor: '#D30C7B',
     transform: [{rotate: '180deg'}],
     shadowColor: '#000',
     shadowOffset: {width: 5, height: 5},
