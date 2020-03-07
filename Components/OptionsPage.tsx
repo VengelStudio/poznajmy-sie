@@ -22,6 +22,10 @@ class OptionsPage extends Component<
     tabu: false,
   };
 
+  UNSAFE_componentWillMount() {
+    this.props.context.filterQuestions(false);
+  }
+
   onPickerPeoplePress = () => {
     RNNumberPickerLibrary.createDialog(
       {

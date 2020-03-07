@@ -2,184 +2,184 @@
   {
     "text": "Na czym najbardziej by ci zależało, gdybyś stał się sławny i bogaty?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Co robisz podczas stresujących rozmów telefonicznych, żeby się uspokoić?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kiedy ostatni raz śpiewałeś i ktoś Cię słyszał?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Co robisz gdy zauważasz, że ktoś Cię obserwuje?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wolałbyś stracić wzrok czy rękę?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Najważniejsza zasada w wychowaniu dziecka to…?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jaką najbardziej spontaniczną decyzję podjąłeś w życiu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Gdybyś mógł na jeden dzień stać się jedną z obecnych osób, kto by to był i dlaczego?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Komu jesteś za coś bardzo wdzięczny, ale on o tym nie wie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Co głupiego zrobiłeś będąc dzieckiem?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Co najdziwniejszego znajduje się na Twojej liście rzeczy do zrobienia przed śmiercią?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czego nikt z obecnych o Tobie nie wie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Opowiedz o jednym z momentów, gdy chciałeś zapaść się pod ziemię.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Twoja dziwna umiejętność to...?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jaką rzecz zrobiłeś w przypływie emocji, której nie żałujesz ale dziś byś nie powtórzył?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Możesz popełnić jedno przestępstwo bez konsekwencji, anonimowo. Co byś zrobił?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Za chwilę zabijesz wszystkich ludzi z danego rocznika na świecie. W jakim wieku byliby ci ludzie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kto z obecnych osób ma najładniejsze oczy?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wolałbyś być brzydki/a ale myśleć że jesteś ładny/a, czy odwrotnie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek coś ukradłeś?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy ukradłeś kiedyś pieniądze swoim rodzicom?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Stajesz się duchem, możesz obserwować życie dowolnej osoby. Kogo wybierasz?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Ile partnerów już miałeś?", "probability": 0.5, "isTabu": false},
+  {"text": "Ile partnerów już miałeś?", "probability": 0.5, "isTabu": true},
   {
     "text": "Osoby o jakich cechach cię intrygują?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek wysyłałeś/aś swoje nagie zdjęcia/filmy?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Możesz dostać nową osobowość, życie, znajomych. Kim byś się stał?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Spotkałeś się kiedyś z osobą poznaną przez internet?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy osobiście miałeś kontakt z jakimikolwiek narkotykami?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek urwał ci się film?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Najgłupsza rzecz zrobiona po alkoholu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Patrzysz do muszli klozetowej przed spłukaniem? ",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Na myśl o czym chciałbyś zapaść się pod ziemię?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Twój najgenialniejszy pomysł życia.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy gdy nagle musisz zawrócić na ulicy wyciągasz telefon i udajesz że przeczytałeś wiadomość, która zmieniła twoje plany?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jakie było twoje ostatnie kłamstwo?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Sikasz pod prysznicem?", "probability": 0.5, "isTabu": false},
+  {"text": "Sikasz pod prysznicem?", "probability": 0.5, "isTabu": true},
   {
     "text": "Opisz swojego najgorszego nauczyciela.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek podobała ci się osoba, której teraz nienawidzisz?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Opisz swoje genitalia jako produkt.",
@@ -189,267 +189,267 @@
   {
     "text": "Zepsułeś kiedyś coś i zrzuciłeś winę na kogoś innego?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "O czym ostatnio rozmawiałeś ze samym sobą?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jakie pytanie miałeś nadzieję wylosować?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy masz tajne hasło, które powiedziałbyś sam sobie z przyszłości/przeszłości aby mieć pewność że to ty?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czego nie zrobiłeś bo „co powiedzą inni”?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy jest coś co robisz zupełnie inaczej niż większość ludzi?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy masz jakieś „nienormalne” nawyki, których nie mają inni? Jakie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Z kim spędzasz najwięcej czasu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kto najczęściej do ciebie dzwoni?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Do kogo najczęściej dzwonisz?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Żałujesz jakiejś imprezy?", "probability": 0.5, "isTabu": false},
+  {"text": "Żałujesz jakiejś imprezy?", "probability": 0.5, "isTabu": true},
   {
     "text": "Jak opisałbyś swój styl bycia?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Którą z obecnych osób uważasz za najmądrzejszą?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Którą z obecnych osób uważasz za najładniejszą (płci przeciwnej)?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Którą z obecnych osób uważasz za najbardziej szaloną?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Którą z obecnych osób uważasz za najniebezpieczniejszą?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Którą z obecnych osób uważasz za najbardziej niewinną?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy masz konto na jakimś portalu randkowym?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "O czym teraz myślisz?", "probability": 0.5, "isTabu": false},
+  {"text": "O czym teraz myślisz?", "probability": 0.5, "isTabu": true},
   {
     "text": "Czy podczas gdy padło pytanie na które w głowie utworzyłeś ciekawą odpowiedź gdyby było do Ciebie? Odpowiedz na nie.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Najbardziej niebezpieczna rzecz jaką zrobiłeś.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedyś prawie zginąłeś przez swoją głupotę?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Stajesz się dyrektorem udanej, dochodowej firmy. Czym miałaby się zajmować?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kiedy ostatnio przeglądałeś cudze wiadomości w telefonie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kogo wśród obecnych osób lubisz najmniej?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Opowiedz o tym jak coś sobie złamałeś.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wszedłeś kiedyś na coś i nie umiałeś zejść? Opowiedz.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Twoja najbardziej satysfakcjonująca zemsta na kimś?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Twoja najlepsza riposta, którą powiedziałeś od razu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy uśmiechasz się i potakujesz, gdy któryś raz z rzędu nie zrozumiesz co ktoś do ciebie powiedział?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy udajesz czasami, że kogoś słuchasz?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jak dajesz znać komuś że siedzi u ciebie już za długo i chcesz, żeby wyszedł?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek udawałeś, że nie ma cię w domu aby nie wpuścić kogoś znajomego?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wymyśliłeś kiedyś jakiś powód tylko po to, by wyjść wcześniej ze spotkania lub imprezy?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Twoja najgłupsza uwaga w dzienniczku.",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wrzuciłeś kiedyś komuś coś do jedzenia lub picia?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Wkradłeś się gdzieś kiedyś unikając płacenia za wstęp?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Dostałeś kiedyś mandat? Za co?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Śledziłeś kiedyś kogoś?", "probability": 0.5, "isTabu": false},
+  {"text": "Śledziłeś kiedyś kogoś?", "probability": 0.5, "isTabu": true},
   {
     "text": "Pisałeś kiedyś do kogoś znajomego używając do tego fałszywego konta na portalu społecznościowym?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Do czego używałeś fałszywego konta na portalu społecznościowym?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy gdzieś w internecie jest jakieś twoje zdjęcie lub nagranie, którego upublicznienia się boisz?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Zrobiłeś kiedyś komuś zdjęcie z ukrycia? Komu i dlaczego?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy pomyliłeś się kiedyś podczas mówienia ciekawostki i zostałeś poprawiony?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Na czym zostałeś przyłapany?", "probability": 0.5, "isTabu": false},
+  {"text": "Na czym zostałeś przyłapany?", "probability": 0.5, "isTabu": true},
   {
     "text": "Skąd dowiedziałeś się skąd się biorą dzieci?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jaka jest twoja ulubiona scena lub cytat z filmu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy nasikałeś kiedyś do basenu?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy przyznałeś się kiedyś do zrobienia czegoś, czego nie zrobiłeś? ",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Jakie komplementy lubisz słyszeć najbardziej?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek piłeś alkohol sam ze sobą?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
-  {"text": "Od czego jesteś uzależniony?", "probability": 0.5, "isTabu": false},
+  {"text": "Od czego jesteś uzależniony?", "probability": 0.5, "isTabu": true},
   {
     "text": "Czy jest tu osoba, której wolałbyś aby tu nie było dzisiaj? (nie musisz mówić która)",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy wyplułeś kiedyś jakieś jedzenie, bo ci nie smakowało?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy poddałeś się kiedyś w czymś i ktoś inny osiągnął to za ciebie?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Osoby o jakich cechach Cię przyciągają?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy miałeś w życiu kogoś, kogo nazwałbyś swoim „mentorem”?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy chciałbyś lub miałeś one-night standa?",
@@ -629,17 +629,17 @@
   {
     "text": "Czy kręci Cię bycie zdominowanym?",
     "probability": 0.5,
-    "isTabu": true
+    "isTabu": false
   },
   {
     "text": "Czy gadałeś/aś do siebie myśląc że nikt Cię nie usłyszy, ale okazało się inaczej?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy skłamałeś/aś kiedyś w tej grze?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Najdziwniejsza sytuacja, w której się zsikałeś/aś?",
@@ -649,22 +649,22 @@
   {
     "text": "Kto z graczy ostatnio Cię zdenerwował?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy kiedykolwiek zrobiłeś/aś komuś poważną krzywdę?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy masz w swoim życiu kogoś, kogo możesz nazwać swoim dementorem?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Kogo z obecnych tu osób myśli chciałbyś poznać?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   },
   {
     "text": "Czy masz na ciele pieprzyk z włosem?",
@@ -674,6 +674,6 @@
   {
     "text": "Jaki jest najdziwniejszy dźwięk jaki słyszałeś?",
     "probability": 0.5,
-    "isTabu": false
+    "isTabu": true
   }
 ]

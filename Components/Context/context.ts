@@ -4,15 +4,15 @@ import {Question} from 'Components/Utilities/data.interface';
 export interface IGlobalState {
   questions: Question[];
   filteredQuestions: Question[];
-  currentQuestionId: number;
+  currentQuestionIndex: number;
   filterQuestions: (allowTabu: boolean) => void;
-  incrementCurrentQuestionId: () => void;
+  incrementCurrentQuestionIndex: () => void;
 }
 
 export const AppContext = React.createContext({
   questions: [],
   filteredQuestions: [],
-  currentQuestionId: 0,
+  currentQuestionIndex: 0,
   filterQuestions: () => {},
-  incrementCurrentQuestionId: () => {},
+  incrementCurrentQuestionIndex: () => {},
 } as IGlobalState);
