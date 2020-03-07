@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
+import {transformAsync} from '@babel/core';
+
+let s = require('./Shared/Styles');
 
 class WelcomePage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
@@ -11,21 +14,11 @@ class WelcomePage extends Component<NavigationInjectedProps> {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.welcomePageWrapper}>
-        <Image
-          style={{
-            flex: 1,
-            margin: 0,
-            width: '100%',
-            position: 'absolute',
-          }}
-          resizeMode="contain"
-          source={require('../Assets/sash.png')}
-        />
-        <Text style={styles.header}>POZNAJMY SIĘ</Text>
+        <Text style={styles.header}>KTO {'\n'}TERAZ?</Text>
         <TouchableOpacity
           onPress={() => navigate('OptionsPage')}
-          style={styles.startButton}>
-          <Text style={styles.startButtonText}>ROZPOCZNIJ</Text>
+          style={s.Button}>
+          <Text style={s.ButtonText}>DALEJ</Text>
         </TouchableOpacity>
       </View>
     );
@@ -37,8 +30,8 @@ export default withNavigation(WelcomePage);
 const styles = StyleSheet.create({
   header: {
     fontFamily: 'babasNeue',
-    marginTop: 200,
-    fontSize: 60,
+    marginTop: 150,
+    fontSize: 80,
     color: '#D30C7B',
   },
   welcomePageWrapper: {
@@ -48,21 +41,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  startButton: {
-    display: 'flex',
-    height: '8%',
-    width: '50%',
-    borderRadius: 40,
-    borderWidth: 2,
-    borderColor: '#4392F1',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 140,
-  },
-  startButtonText: {
-    fontFamily: 'simplifica',
-    fontSize: 30,
-    color: '#4392F1',
   },
 });
