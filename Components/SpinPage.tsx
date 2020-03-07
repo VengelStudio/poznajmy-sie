@@ -90,9 +90,9 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     this.state.wheelData = pieChart.map((pie, i) => {
       const paths = d3.shape
         .arc<PieArcDatum<any>>()
-        .outerRadius(pieSize / 2 - 25)
+        .outerRadius(pieSize / 2 - 75)
         .padAngle(0)
-        .innerRadius(30)(pie);
+        .innerRadius(20)(pie);
 
       return {
         paths,
@@ -153,15 +153,17 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
         <View style={[styles.spinnerArrow]}>
           <ArrowDown />
         </View>
-        <Animated.View style={{transform: [{rotate: spin}]}}>
-          <Surface width={pieSize} height={pieSize}>
-            <Group x={x} y={y}>
-              {this.state.wheelData.map((item: IWheelPie, index: any) => (
-                <Shape key={index} fill={item.color} d={item.paths} />
-              ))}
-            </Group>
-          </Surface>
-        </Animated.View>
+        <View style={styles.spinner}>
+          <Animated.View style={{transform: [{rotate: spin}]}}>
+            <Surface width={pieSize} height={pieSize}>
+              <Group x={x} y={y}>
+                {this.state.wheelData.map((item: IWheelPie, index: any) => (
+                  <Shape key={index} fill={item.color} d={item.paths} />
+                ))}
+              </Group>
+            </Surface>
+          </Animated.View>
+        </View>
         <TouchableOpacity
           onPress={() => {
             this.pickQuestion();
@@ -186,25 +188,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  playButton: {
-    display: 'flex',
-    height: '8%',
-    width: '50%',
-    borderRadius: 40,
-    borderWidth: 2,
-    borderColor: '#4392F1',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 140,
-  },
-  playButtonText: {
-    fontFamily: 'simplifica',
-    fontSize: 30,
-    color: '#4392F1',
+  spinner: {
+    backgroundColor: '#0000', // invisible color
+    zIndex: 10,
+    elevation: 1,
   },
   spinnerArrow: {
     position: 'absolute',
-    top: 10,
-    zIndex: 10,
+    top: 50,
+    zIndex: 20,
+    elevation: 2,
   },
 });

@@ -14,6 +14,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 140,
+    elevation: 4,
   },
   ButtonText: {
     fontFamily: 'simplifica',
