@@ -12,6 +12,8 @@ import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
 import {IWheelPie} from './SpinPage';
 
+let s = require('./Shared/Styles');
+
 class QuestionPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
     title: 'Question page',
@@ -58,10 +60,8 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <View style={styles.questionWrapper}>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
-        <TouchableOpacity
-          onPress={() => navigate('SpinPage')}
-          style={styles.startButton}>
-          <Text style={styles.startButtonText}>ZAMKNIJ</Text>
+        <TouchableOpacity onPress={() => navigate('SpinPage')} style={s.Button}>
+          <Text style={s.ButtonText}>ZAMKNIJ</Text>
         </TouchableOpacity>
       </View>
     );
@@ -98,20 +98,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
   },
   questionMark: {width: 100, height: 100},
-  startButton: {
-    display: 'flex',
-    height: '8%',
-    width: '50%',
-    borderRadius: 40,
-    borderWidth: 2,
-    borderColor: '#4392F1',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 100,
-  },
-  startButtonText: {
-    fontFamily: 'simplifica',
-    fontSize: 30,
-    color: '#4392F1',
-  },
 });
