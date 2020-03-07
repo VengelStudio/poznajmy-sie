@@ -21,14 +21,13 @@ export const getWheelColor = (id: number) => {
 
 export const getRandomQuestion = ({
   filteredQuestions,
-  currentQuestionId,
+  currentQuestionIndex,
 }: IGlobalState) => {
   console.log(filteredQuestions);
-  console.log(currentQuestionId);
+  console.log(currentQuestionIndex);
   if (filteredQuestions.length > 0) {
-    return filteredQuestions.filter(q => {
-      return q.id === currentQuestionId;
-    })[0];
+    const index = currentQuestionIndex % filteredQuestions.length;
+    return filteredQuestions[index];
   } else {
     return null;
   }

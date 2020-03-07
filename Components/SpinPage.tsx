@@ -120,12 +120,12 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
         const {
           filteredQuestions,
-          incrementCurrentQuestionId,
+          incrementCurrentQuestionIndex,
         } = this.props.context;
 
         if (filteredQuestions.length > 0) {
           const currentQuestion = getRandomQuestion(this.props.context);
-          incrementCurrentQuestionId();
+          incrementCurrentQuestionIndex();
 
           this.setState({currentQuestion}, () => {
             this.setState({spinValue: new Animated.Value(0)});
