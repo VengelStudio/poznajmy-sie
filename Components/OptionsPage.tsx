@@ -32,9 +32,9 @@ class OptionsPage extends Component<
         minValue: 2,
         maxValue: 20,
         selectedValue: this.state.numberOfPeople,
-        doneText: 'Done',
+        doneText: 'Wybierz',
         doneTextColor: '#000000', // only for Android
-        cancelText: 'Cancel',
+        cancelText: 'Anuluj',
         cancelTextColor: '#000000', // only for Android
       },
       // done click
