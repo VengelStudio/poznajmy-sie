@@ -19,7 +19,7 @@ import {Question} from './Utilities/data.interface';
 import {
   getRandomColor,
   getRandomQuestion,
-  getWheelColor,
+  generateRandomColors,
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 
@@ -87,6 +87,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
     const pieChart = d3.shape.pie()(data);
 
+    const generatedColors = generateRandomColors(numberOfPeople);
+
     this.state.wheelData = pieChart.map((pie, i) => {
       const paths = d3.shape
         .arc<PieArcDatum<any>>()
@@ -96,7 +98,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
       return {
         paths,
-        color: getWheelColor(i),
+        color: generatedColors[i],
         startAngle: pie.startAngle,
       } as IWheelPie;
     });
