@@ -4,7 +4,6 @@ import {
   View,
   StyleSheet,
   Animated,
-  Easing,
   Dimensions,
   TouchableOpacity,
   Text,
@@ -16,11 +15,7 @@ import * as scale from 'd3-scale';
 import * as shape from 'd3-shape';
 import {PieArcDatum} from 'd3-shape';
 import {Question} from './Utilities/data.interface';
-import {
-  getRandomColor,
-  getRandomQuestion,
-  generateRandomColors,
-} from './Utilities/methods';
+import {generateRandomColors} from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 
 let s = require('./Shared/Styles');
@@ -101,7 +96,7 @@ class InstructionPage extends Component<
     return (
       <View style={styles.welcomePageWrapper}>
         <View style={styles.upperBar}>
-          <Text style={styles.header}>OPCJE</Text>
+          <Text style={styles.header}>INSTRUKCJA</Text>
         </View>
         <View style={[styles.spinnerArrow]}>
           <ArrowDown />
