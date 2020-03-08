@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   optionsText: {
     fontSize: 20,
     marginTop: 5,
-    color: 'blue',
+    color: '#4392F1',
     fontFamily: 'Simplifica',
   },
 });
