@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
+  Image,
 } from 'react-native';
 import {withNavigation, NavigationInjectedProps} from 'react-navigation';
 import withContext from './Context/ContextConsumerHOC';
@@ -141,6 +142,16 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     }
   };
 
+  dynamicStyles() {
+    const styles = StyleSheet.create({
+      pieShadowSize: {
+        width: pieSize / 2 + 102,
+        height: pieSize / 2 + 102,
+      },
+    });
+    return styles;
+  }
+
   render() {
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
@@ -165,6 +176,10 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
               </Group>
             </Surface>
           </Animated.View>
+          <Image
+            style={[styles.wheelShadow, this.dynamicStyles().pieShadowSize]}
+            source={require('../Assets/wheelShadow.png')}
+          />
         </View>
         <TouchableOpacity
           onPress={() => {
@@ -197,8 +212,13 @@ const styles = StyleSheet.create({
   },
   spinnerArrow: {
     position: 'absolute',
-    top: 50,
     zIndex: 20,
     elevation: 2,
+  },
+  wheelShadow: {
+    alignSelf: 'center',
+    top: 60,
+    position: 'absolute',
+    zIndex: -10,
   },
 });
