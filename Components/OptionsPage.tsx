@@ -122,7 +122,7 @@ class OptionsPage extends Component<
               tabu: this.state.tabu,
             })
           }
-          style={s.Button}>
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
       </View>
