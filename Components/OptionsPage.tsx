@@ -22,15 +22,19 @@ class OptionsPage extends Component<
     tabu: false,
   };
 
+  UNSAFE_componentWillMount() {
+    this.props.context.filterQuestions(false);
+  }
+
   onPickerPeoplePress = () => {
     RNNumberPickerLibrary.createDialog(
       {
         minValue: 2,
         maxValue: 20,
         selectedValue: this.state.numberOfPeople,
-        doneText: 'Done',
+        doneText: 'Wybierz',
         doneTextColor: '#000000', // only for Android
-        cancelText: 'Cancel',
+        cancelText: 'Anuluj',
         cancelTextColor: '#000000', // only for Android
       },
       // done click
@@ -61,6 +65,28 @@ class OptionsPage extends Component<
     this.props.context.filterQuestions(!this.state.tabu);
   };
 
+  dynamicStyles() {
+    const styles = StyleSheet.create({
+      ageWarning: {
+        position: 'absolute',
+        right: -36,
+        backgroundColor: '#fffe',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 2,
+        borderColor: '#db3c45',
+        borderRadius: 100,
+        color: '#333',
+        padding: 2,
+        width: 30,
+        height: 30,
+        opacity: this.state.tabu ? 1 : 0,
+      },
+    });
+
+    return styles;
+  }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -72,11 +98,16 @@ class OptionsPage extends Component<
           <View style={styles.optionsLabel}>
             <Text style={styles.optionsText}>Pytania tabu?</Text>
             <Switch
+              thumbColor="#fff"
+              trackColor={{false: '#930856', true: '#D30C7B'}}
               onValueChange={this.toggleTabu}
               value={this.state.tabu}></Switch>
+            <View style={this.dynamicStyles().ageWarning}>
+              <Text style={styles.ageWarningText}>18+</Text>
+            </View>
           </View>
           <View style={styles.optionsLabel}>
-            <Text style={styles.optionsText}>Liczba osób</Text>
+            <Text style={styles.optionsText}>Liczba osób:</Text>
             <TouchableOpacity onPress={this.onPickerPeoplePress}>
               <Text style={styles.optionsTextNumber}>
                 {this.state.numberOfPeople}
@@ -91,7 +122,7 @@ class OptionsPage extends Component<
               tabu: this.state.tabu,
             })
           }
-          style={s.Button}>
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>ROZPOCZNIJ</Text>
         </TouchableOpacity>
       </View>
@@ -114,12 +145,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#D30C7B',
   },
+  ageWarningText: {
+    fontFamily: 'Simplifica',
+    fontSize: 12,
+  },
   options: {
+    paddingTop: 50,
     marginTop: 70,
-    flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    padding: 50,
+    backgroundColor: '#fafafa',
+    elevation: 4,
+    borderRadius: 10,
   },
   numberPicker: {
     fontSize: 30,
@@ -132,18 +171,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 15,
   },
   optionsText: {
     fontSize: 40,
     fontFamily: 'simplifica',
     color: '#4392F1',
-    marginRight: 70,
+    marginRight: 30,
   },
   optionsTextNumber: {
-    fontSize: 40,
-    fontFamily: 'simplifica',
-    marginLeft: 20,
+    fontSize: 30,
+    fontFamily: 'Simplifica',
+    marginLeft: 15,
+    paddingLeft: 10,
+    color: '#D30C7B',
+    textDecorationColor: '#222',
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'solid',
   },
   welcomePageWrapper: {
     flex: 1,
