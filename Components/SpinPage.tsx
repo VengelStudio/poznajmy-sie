@@ -159,9 +159,9 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           <Animated.View style={{transform: [{rotate: spin}]}}>
             <Surface width={pieSize} height={pieSize}>
               <Group x={x} y={y}>
-                {this.state.wheelData.map((item: IWheelPie, index: any) => (
-                  <Shape key={index} fill={item.color} d={item.paths} />
-                ))}
+                {this.state.wheelData.map((item: IWheelPie) => {
+                  return <Shape fill={item.color} d={item.paths} />;
+                })}
               </Group>
             </Surface>
           </Animated.View>
