@@ -26,7 +26,8 @@ import ArrowDown from './Shared/ArrowDown';
 
 let s = require('./Shared/Styles');
 
-const {Surface, Group, Shape} = ART;
+// @ts-ignore
+const {Surface, Group, Shape, Text: ARTText, Transform} = ART;
 
 const d3 = {
   scale,
@@ -161,17 +162,53 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     const x = pieSize / 2;
     const y = pieSize / 2;
 
+    const isNumberOfPeopleEven = () => {
+      return this.state.wheelData.length % 2 === 0;
+    };
+
     return (
       <View style={styles.welcomePageWrapper}>
         <View style={[styles.spinnerArrow]}>
           <ArrowDown />
         </View>
         <View style={styles.spinner}>
+          <Animated.View
+            style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
+            <Surface width={pieSize} height={pieSize}>
+              <Group
+                x={x}
+                y={y}
+                transform={
+                  isNumberOfPeopleEven()
+                    ? new Transform().rotate(
+                        (Math.PI * 180) / this.state.wheelData.length,
+                      )
+                    : null
+                }>
+                {this.state.wheelData.map((item: IWheelPie, i: number) => {
+                  console.log(i);
+
+                  return (
+                    <ARTText
+                      transform={new Transform()
+                        .rotate((item.startAngle * 180) / Math.PI)
+                        .translate(0, 20)
+                        .rotate(360 / this.state.wheelData.length / 2)}
+                      font={'40px "Helvetica Neue", "Helvetica", Arial'}
+                      fill={'#000000'}
+                      key={i}>
+                      {`${i + 1}`}
+                    </ARTText>
+                  );
+                })}
+              </Group>
+            </Surface>
+          </Animated.View>
           <Animated.View style={{transform: [{rotate: spin}]}}>
             <Surface width={pieSize} height={pieSize}>
               <Group x={x} y={y}>
-                {this.state.wheelData.map((item: IWheelPie) => {
-                  return <Shape fill={item.color} d={item.paths} />;
+                {this.state.wheelData.map((item: IWheelPie, i: number) => {
+                  return <Shape fill={item.color} d={item.paths} key={i} />;
                 })}
               </Group>
             </Surface>
@@ -220,5 +257,9 @@ const styles = StyleSheet.create({
     top: 60,
     position: 'absolute',
     zIndex: -10,
+  },
+  wheelLabels: {
+    position: 'absolute',
+    zIndex: 200,
   },
 });
