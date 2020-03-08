@@ -16,16 +16,16 @@ let s = require('./Shared/Styles');
 
 const data = [
   {
-    name: 'Bartosz Kepka',
-    task: 'gowno',
+    name: 'Bartosz Kępka',
+    task: 'Developer',
   },
   {
-    name: '',
-    task: '',
+    name: 'Łukasz Blachnicki',
+    task: 'Developer',
   },
   {
-    name: '',
-    task: '',
+    name: 'Kessalo',
+    task: 'Questions author',
   },
   {
     name: '',
