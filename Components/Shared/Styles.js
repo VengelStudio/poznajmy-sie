@@ -13,11 +13,14 @@ module.exports = StyleSheet.create({
     backgroundColor: '#D30C7B',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 140,
+    elevation: 4,
   },
   ButtonText: {
     fontFamily: 'simplifica',
     fontSize: 35,
     color: 'white',
+  },
+  actionButtonBottomMargin: {
+    marginBottom: 170,
   },
 });

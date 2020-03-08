@@ -6,15 +6,18 @@ import WelcomePage from './Components/WelcomePage';
 import OptionsPage from './Components/OptionsPage';
 import SpinPage from './Components/SpinPage';
 import QuestionPage from './Components/QuestionPage';
+import CreditsPage from './Components/CreditsPage';
 import {Question} from './Components/Utilities/data.interface';
 import questionsRaw from './Assets/Data/questions.json';
 import {AppContext, IGlobalState} from './Components/Context/context';
+
 const MainNavigator = createStackNavigator(
   {
     WelcomePage: {screen: WelcomePage},
     OptionsPage: {screen: OptionsPage},
     SpinPage: {screen: SpinPage},
     QuestionPage: {screen: QuestionPage},
+    CreditsPage: {screen: CreditsPage},
   },
   {
     headerMode: 'none',
@@ -33,54 +36,51 @@ const questions = questionsRaw.map((questionRaw, i) => {
 function shuffle(array: Array<any>) {
   let counter = array.length;
 
-  // While there are elements in the array
-  console.log(array);
   while (counter > 0) {
-    // Pick a random index
     let index = Math.floor(Math.random() * counter);
 
-    // Decrease counter by 1
     counter--;
 
-    // And swap the last element with it
     let temp = array[counter];
     array[counter] = array[index];
     array[index] = temp;
   }
-  console.log(array);
-  return;
+  return array;
 }
 
 class App extends React.Component {
   filterQuestions = (allowTabu: boolean) => {
-    if (allowTabu) {
-      this.setState({filteredQuestions: shuffle(questions)});
-    } else {
-      const filteredQuestions = shuffle(questions).filter(question => {
+    let filteredQuestions = shuffle(questions);
+
+    if (!allowTabu) {
+      filteredQuestions = filteredQuestions.filter(question => {
         return question.isTabu === false;
       });
-      this.setState({filteredQuestions});
     }
+
+    this.setState({filteredQuestions});
   };
 
-  incrementCurrentQuestionId = () => {
+  incrementCurrentQuestionIndex = () => {
     if (
-      this.state.currentQuestionId ===
+      this.state.currentQuestionIndex ===
       this.state.filteredQuestions.length - 1
     ) {
       // we reached the end, jump over to the beginning
-      this.setState({currentQuestionId: 0});
+      this.setState({currentQuestionIndex: 0});
     } else {
-      this.setState({currentQuestionId: this.state.currentQuestionId + 1});
+      this.setState({
+        currentQuestionIndex: this.state.currentQuestionIndex + 1,
+      });
     }
   };
 
   state: IGlobalState = {
     questions,
     filteredQuestions: questions,
-    currentQuestionId: 0,
+    currentQuestionIndex: 0,
     filterQuestions: this.filterQuestions,
-    incrementCurrentQuestionId: this.incrementCurrentQuestionId,
+    incrementCurrentQuestionIndex: this.incrementCurrentQuestionIndex,
   };
 
   render() {

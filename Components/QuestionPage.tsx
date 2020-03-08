@@ -60,7 +60,9 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <View style={styles.questionWrapper}>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
-        <TouchableOpacity onPress={() => navigate('SpinPage')} style={s.Button}>
+        <TouchableOpacity
+          onPress={() => navigate('SpinPage')}
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>ZAMKNIJ</Text>
         </TouchableOpacity>
       </View>
@@ -87,9 +89,14 @@ const styles = StyleSheet.create({
   question: {
     fontFamily: 'Raleway-Regular',
     marginTop: 40,
-    padding: 3,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 20,
     textAlign: 'center',
     fontSize: 30,
+    backgroundColor: '#fafafa',
+    elevation: 4,
+    borderRadius: 10,
   },
   questionMarkWrapper: {
     borderColor: '#64666a',
