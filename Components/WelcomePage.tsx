@@ -17,8 +17,13 @@ class WelcomePage extends Component<NavigationInjectedProps> {
         <Text style={styles.header}>KTO {'\n'}TERAZ?</Text>
         <TouchableOpacity
           onPress={() => navigate('OptionsPage')}
-          style={s.Button}>
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>DALEJ</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigate('CreditsPage')}
+          style={styles.creditsButton}>
+          <Text style={styles.creditsButtonText}>CREDITS</Text>
         </TouchableOpacity>
       </View>
     );
@@ -41,5 +46,23 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  creditsButton: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 120,
+    borderBottomWidth: 120,
+    borderLeftColor: 'transparent',
+    borderBottomColor: '#e46d73',
+  },
+  creditsButtonText: {
+    position: 'absolute',
+    flex: 1,
+    color: '#333',
   },
 });

@@ -170,7 +170,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           onPress={() => {
             this.pickQuestion();
           }}
-          style={s.Button}>
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>LOSUJ PYTANIE</Text>
         </TouchableOpacity>
       </View>

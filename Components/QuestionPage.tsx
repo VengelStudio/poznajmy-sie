@@ -60,7 +60,9 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <View style={styles.questionWrapper}>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
-        <TouchableOpacity onPress={() => navigate('SpinPage')} style={s.Button}>
+        <TouchableOpacity
+          onPress={() => navigate('SpinPage')}
+          style={[s.Button, s.actionButtonBottomMargin]}>
           <Text style={s.ButtonText}>ZAMKNIJ</Text>
         </TouchableOpacity>
       </View>
