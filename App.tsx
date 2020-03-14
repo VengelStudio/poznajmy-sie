@@ -7,7 +7,6 @@ import OptionsPage from './Components/OptionsPage';
 import SpinPage from './Components/SpinPage';
 import QuestionPage from './Components/QuestionPage';
 import CreditsPage from './Components/CreditsPage';
-import InstructionPage from './Components/InstructionPage';
 import {Question} from './Components/Utilities/data.interface';
 import questionsRaw from './Assets/Data/questions.json';
 import {AppContext, IGlobalState} from './Components/Context/context';
@@ -19,7 +18,6 @@ const MainNavigator = createStackNavigator(
     SpinPage: {screen: SpinPage},
     QuestionPage: {screen: QuestionPage},
     CreditsPage: {screen: CreditsPage},
-    InstructionPage: {screen: InstructionPage},
   },
   {
     headerMode: 'none',

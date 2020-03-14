@@ -117,7 +117,7 @@ class OptionsPage extends Component<
         </View>
         <TouchableOpacity
           onPress={() =>
-            navigate('InstructionPage', {
+            navigate('SpinPage', {
               numberOfPeople: this.state.numberOfPeople,
               tabu: this.state.tabu,
             })

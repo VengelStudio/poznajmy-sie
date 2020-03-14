@@ -54,6 +54,7 @@ interface State {
   spinValue: Animated.Value;
   wheelData: IWheelPie[];
   isAnimationFinished: boolean;
+  isInstructionOpen: boolean;
 }
 
 const getRandomSpinValue = () => {
@@ -94,6 +95,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     spinValue: new Animated.Value(0),
     wheelData: [],
     isAnimationFinished: true,
+    isInstructionOpen: true,
   } as State;
 
   constructor(props: any) {
@@ -232,24 +234,48 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             source={require('../Assets/wheelShadow.png')}
           />
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            this.pickQuestion();
-          }}
-          style={[s.Button, s.actionButtonBottomMargin]}>
-          <Text style={s.ButtonText}>LOSUJ PYTANIE</Text>
-        </TouchableOpacity>
+        {!this.state.isInstructionOpen && (
+          <TouchableOpacity
+            onPress={() => {
+              this.pickQuestion();
+            }}
+            style={[s.Button, s.actionButtonBottomMargin]}>
+            <Text style={s.ButtonText}>LOSUJ PYTANIE</Text>
+          </TouchableOpacity>
+        )}
+
+        {this.state.isInstructionOpen && (
+          <View style={styles.instructionPageWrapper}>
+            <View style={styles.upperBar}>
+              <Text style={styles.instructionHeader}>INSTRUKCJA</Text>
+            </View>
+            <View style={styles.instructionDescriptionWrapper}>
+              <Text style={styles.instructionDescriptionText}>
+                1. Gra polega na odpowiadaniu na losowe pytania
+              </Text>
+              <Text style={styles.instructionDescriptionText}>
+                2. Każdy gracz powinien wybrać i zapamiętać swoje zwierze, które
+                będzie jego do końca gry
+              </Text>
+              <Text style={styles.instructionDescriptionText}>
+                3. Miłej zabawy :)
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => this.setState({isInstructionOpen: false})}
+              style={[s.Button, s.actionButtonBottomMargin]}>
+              <Text style={s.ButtonText}>START</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     );
   }
 }
-
+const deviceWidth = Dimensions.get('window').width;
 export default withContext(withNavigation(SpinPage));
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 40,
-  },
   welcomePageWrapper: {
     flex: 1,
     flexDirection: 'column',
@@ -260,11 +286,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#0000', // invisible color
     zIndex: 10,
     elevation: 1,
+    marginTop: 26,
   },
   spinnerArrow: {
     position: 'absolute',
     zIndex: 20,
     elevation: 2,
+    marginTop: 26,
   },
   wheelShadow: {
     alignSelf: 'center',
@@ -275,5 +303,41 @@ const styles = StyleSheet.create({
   wheelLabels: {
     position: 'absolute',
     zIndex: 200,
+  },
+
+  instructionHeader: {
+    fontFamily: 'babasNeue',
+    fontSize: 60,
+    color: 'white',
+  },
+  upperBar: {
+    width: deviceWidth,
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#D30C7B',
+  },
+  instructionPageWrapper: {
+    flex: 1,
+    position: 'absolute',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  instructionDescriptionWrapper: {
+    marginTop: pieSize / 2 + 90,
+    marginBottom: 15,
+    width: '80%',
+    backgroundColor: '#fafafa',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    elevation: 4,
+  },
+  instructionDescriptionText: {
+    fontSize: 20,
+    marginTop: 5,
+    color: '#4392F1',
+    fontFamily: 'Simplifica',
   },
 });
