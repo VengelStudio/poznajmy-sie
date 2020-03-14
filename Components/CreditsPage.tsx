@@ -23,22 +23,6 @@ const data = [
     name: 'Łukasz Blachnicki',
     task: 'Developer',
   },
-  {
-    name: 'Kessalo',
-    task: 'Questions author',
-  },
-  {
-    name: '',
-    task: '',
-  },
-  {
-    name: '',
-    task: '',
-  },
-  {
-    name: '',
-    task: '',
-  },
 ];
 
 function Item({name, task}: any) {
@@ -85,7 +69,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
   },
   backEntryButton: {
-    top: 3,
+    height: 46,
+    top: 6,
     zIndex: 20,
     position: 'absolute',
     alignSelf: 'center',
