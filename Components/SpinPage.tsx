@@ -21,6 +21,7 @@ import {
   getRandomColor,
   getRandomQuestion,
   generateRandomColors,
+  getEmoji,
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 
@@ -44,6 +45,8 @@ export interface IWheelPie {
   paths: string;
   color: string;
   startAngle: number;
+  endAngle: number;
+  emoji: string;
 }
 
 interface State {
@@ -67,6 +70,18 @@ const getWinnerColor = (value: number, wheelData: IWheelPie[]) => {
       return wheelData[i];
     }
   }
+};
+
+const getWinnerIndex = (angle: number, wheelData: IWheelPie[]) => {
+  const rawAngle = angle * 6 * Math.PI;
+  const cleanAngle = rawAngle % (2 * Math.PI);
+
+  for (let i = wheelData.length - 1; i >= 0; i--) {
+    if (2 * Math.PI - cleanAngle >= wheelData[i].startAngle) {
+      return i;
+    }
+  }
+  return -1;
 };
 
 class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
@@ -102,6 +117,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
         paths,
         color: generatedColors[i],
         startAngle: pie.startAngle,
+        endAngle: pie.endAngle,
+        emoji: getEmoji(i),
       } as IWheelPie;
     });
   }
@@ -136,6 +153,9 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             this.props.navigation.navigate('QuestionPage', {
               question: this.state.currentQuestion,
               winner: getWinnerColor(toValue, this.state.wheelData),
+              emoji: this.state.wheelData[
+                getWinnerIndex(toValue, this.state.wheelData)
+              ].emoji,
             });
           });
         }
@@ -175,29 +195,22 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           <Animated.View
             style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
             <Surface width={pieSize} height={pieSize}>
-              <Group
-                x={x}
-                y={y}
-                transform={
-                  isNumberOfPeopleEven()
-                    ? new Transform().rotate(
-                        (Math.PI * 180) / this.state.wheelData.length,
-                      )
-                    : null
-                }>
+              <Group x={x} y={y}>
                 {this.state.wheelData.map((item: IWheelPie, i: number) => {
                   console.log(i);
 
                   return (
                     <ARTText
                       transform={new Transform()
-                        .rotate((item.startAngle * 180) / Math.PI)
-                        .translate(0, 20)
-                        .rotate(360 / this.state.wheelData.length / 2)}
+                        .rotate(
+                          (((item.startAngle + item.endAngle) / 2) * 180) /
+                            Math.PI,
+                        )
+                        .translate(0, 70)}
                       font={'40px "Helvetica Neue", "Helvetica", Arial'}
                       fill={'#000000'}
                       key={i}>
-                      {`${i + 1}`}
+                      {item.emoji}
                     </ARTText>
                   );
                 })}
