@@ -195,7 +195,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           <Animated.View
             style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
             <Surface width={pieSize} height={pieSize}>
-              <Group x={x} y={y}>
+              <Group x={x} y={y} transform={new Transform().rotate(180)}>
                 {this.state.wheelData.map((item: IWheelPie, i: number) => {
                   console.log(i);
 
@@ -206,7 +206,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
                           (((item.startAngle + item.endAngle) / 2) * 180) /
                             Math.PI,
                         )
-                        .translate(0, 70)}
+                        .translate(-23, -23)
+                        .translate(0, 105)}
                       font={'40px "Helvetica Neue", "Helvetica", Arial'}
                       fill={'#000000'}
                       key={i}>
