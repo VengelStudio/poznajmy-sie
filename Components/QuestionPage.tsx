@@ -29,6 +29,10 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return (this.props.navigation.state.params as any).winner as IWheelPie;
   }
 
+  get emoji() {
+    return (this.props.navigation.state.params as any).emoji;
+  }
+
   dynamicStyles() {
     const styles = StyleSheet.create({
       questionWrapperStyles: {
@@ -51,11 +55,8 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     const {navigate} = this.props.navigation;
     return (
       <View style={this.dynamicStyles().questionWrapperStyles}>
-        <View style={styles.questionMarkWrapper}>
-          <Image
-            style={this.dynamicStyles().questionMarkColorStyle}
-            source={require('../Assets/questionMark.png')}
-          />
+        <View>
+          <Text style={styles.emoji}>{this.emoji}</Text>
         </View>
         <View style={styles.questionWrapper}>
           <Text style={styles.question}>{this.questionText}</Text>
@@ -98,11 +99,5 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderRadius: 10,
   },
-  questionMarkWrapper: {
-    borderColor: '#64666a',
-    borderRadius: 50,
-    borderWidth: 3,
-    backgroundColor: '#333',
-  },
-  questionMark: {width: 100, height: 100},
+  emoji: {fontSize: 72},
 });

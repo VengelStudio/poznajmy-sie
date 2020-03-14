@@ -30,7 +30,7 @@ class OptionsPage extends Component<
     RNNumberPickerLibrary.createDialog(
       {
         minValue: 2,
-        maxValue: 20,
+        maxValue: 15,
         selectedValue: this.state.numberOfPeople,
         doneText: 'Wybierz',
         doneTextColor: '#000000', // only for Android
@@ -117,7 +117,7 @@ class OptionsPage extends Component<
         </View>
         <TouchableOpacity
           onPress={() =>
-            navigate('InstructionPage', {
+            navigate('SpinPage', {
               numberOfPeople: this.state.numberOfPeople,
               tabu: this.state.tabu,
             })
