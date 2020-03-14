@@ -41,3 +41,28 @@ export const getRandomQuestion = ({
     return null;
   }
 };
+
+const emojis = [
+  '🐵',
+  '🐶',
+  '🕷',
+  '🦊',
+  '🦝',
+  '🐱',
+  '🦄',
+  '🦁',
+  '🐴',
+  '🐮',
+  '🐷',
+  '🐭',
+  '🐼',
+  '🐔',
+  '🐸',
+  '🐌',
+  '🐋',
+  '🐢',
+  '🐺',
+  '🐍',
+];
+
+export const getEmoji = (index: number) => emojis[index];
