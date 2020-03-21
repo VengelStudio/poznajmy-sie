@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, View, Image, StyleSheet} from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  StyleSheet,
+  Button,
+} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {transformAsync} from '@babel/core';
+import Separator from './Shared/Separator';
+import CustomButton from './Shared/CustomButton';
 
 let s = require('./Shared/Styles');
 
@@ -15,16 +24,18 @@ class WelcomePage extends Component<NavigationInjectedProps> {
     return (
       <View style={styles.welcomePageWrapper}>
         <Text style={styles.header}>KTO {'\n'}TERAZ?</Text>
-        <TouchableOpacity
-          onPress={() => navigate('OptionsPage')}
-          style={[s.Button, s.actionButtonBottomMargin]}>
-          <Text style={s.ButtonText}>DALEJ</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigate('CreditsPage')}
-          style={styles.creditsButton}>
-          <Text style={styles.creditsButtonText}>CREDITS</Text>
-        </TouchableOpacity>
+        <Separator />
+        <Separator />
+        <Separator />
+        <View style={[styles.btnWrapper, s.actionButtonBottomMargin]}>
+          <CustomButton onClick={() => navigate('OptionsPage')} text="DALEJ" />
+          <Separator />
+          <CustomButton
+            onClick={() => navigate('CreditsPage')}
+            text="CREDITS"
+            secondary
+          />
+        </View>
       </View>
     );
   }
@@ -47,21 +58,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  creditsButton: {
-    position: 'absolute',
-
-    right: -110,
-    bottom: -20,
-    backgroundColor: '#ffd700',
-    overflow: 'visible',
-    transform: [{rotate: '-45deg'}],
-  },
-  creditsButtonText: {
+  ditsButtonText: {
     fontSize: 18,
     fontFamily: 'Simplifica',
     color: '#222222',
     paddingVertical: 50,
     paddingHorizontal: 100,
     paddingTop: 20,
+  },
+  btnWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

@@ -24,6 +24,7 @@ import {
   getEmoji,
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
+import CustomButton from './Shared/CustomButton';
 
 let s = require('./Shared/Styles');
 
@@ -235,13 +236,12 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           />
         </View>
         {!this.state.isInstructionOpen && (
-          <TouchableOpacity
-            onPress={() => {
+          <CustomButton
+            onClick={() => {
               this.pickQuestion();
             }}
-            style={[s.Button, s.actionButtonBottomMargin]}>
-            <Text style={s.ButtonText}>LOSUJ PYTANIE</Text>
-          </TouchableOpacity>
+            text="LOSUJ PYTANIE"
+          />
         )}
 
         {this.state.isInstructionOpen && (
@@ -251,21 +251,16 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             </View>
             <View style={styles.instructionDescriptionWrapper}>
               <Text style={styles.instructionDescriptionText}>
-                1. Gra polega na odpowiadaniu na losowe pytania
+                ‣ Niech każdy wybierze swoje emoji i je zapamięta.
               </Text>
               <Text style={styles.instructionDescriptionText}>
-                2. Każdy gracz powinien wybrać i zapamiętać swoje zwierze, które
-                będzie jego do końca gry
-              </Text>
-              <Text style={styles.instructionDescriptionText}>
-                3. Miłej zabawy :)
+                ‣ Wylosowany gracz musi odpowiedzieć na pytanie.
               </Text>
             </View>
-            <TouchableOpacity
-              onPress={() => this.setState({isInstructionOpen: false})}
-              style={[s.Button, s.actionButtonBottomMargin]}>
-              <Text style={s.ButtonText}>START</Text>
-            </TouchableOpacity>
+            <CustomButton
+              onClick={() => this.setState({isInstructionOpen: false})}
+              text="START"
+            />
           </View>
         )}
       </View>
@@ -279,7 +274,6 @@ const styles = StyleSheet.create({
   welcomePageWrapper: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
   spinner: {

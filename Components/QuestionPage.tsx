@@ -11,6 +11,8 @@ import {
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
 import {IWheelPie} from './SpinPage';
+import CustomButton from './Shared/CustomButton';
+import Separator from './Shared/Separator';
 
 let s = require('./Shared/Styles');
 
@@ -36,10 +38,9 @@ class QuestionPage extends Component<NavigationInjectedProps> {
   dynamicStyles() {
     const styles = StyleSheet.create({
       questionWrapperStyles: {
-        paddingTop: 80,
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         borderStyle: 'solid',
       },
@@ -58,14 +59,14 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <View>
           <Text style={styles.emoji}>{this.emoji}</Text>
         </View>
+        <Separator />
+        <Separator />
         <View style={styles.questionWrapper}>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
-        <TouchableOpacity
-          onPress={() => navigate('SpinPage')}
-          style={[s.Button, s.actionButtonBottomMargin]}>
-          <Text style={s.ButtonText}>ZAMKNIJ</Text>
-        </TouchableOpacity>
+        <Separator />
+        <Separator />
+        <CustomButton onClick={() => navigate('SpinPage')} text="ZAMKNIJ" />
       </View>
     );
   }
@@ -74,22 +75,12 @@ class QuestionPage extends Component<NavigationInjectedProps> {
 export default withNavigation(QuestionPage);
 
 const styles = StyleSheet.create({
-  welcomePageWrapper: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderStyle: 'solid',
-    borderWidth: 4,
-  },
   questionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 80,
   },
   question: {
     fontFamily: 'Raleway-Regular',
-    marginTop: 40,
     marginLeft: 20,
     marginRight: 20,
     padding: 20,
