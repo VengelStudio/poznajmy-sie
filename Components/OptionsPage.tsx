@@ -4,6 +4,8 @@ import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 import {IGlobalState} from './Context/context';
 import withContext from './Context/ContextConsumerHOC';
+import CustomButton from './Shared/CustomButton';
+import Separator from './Shared/Separator';
 
 let s = require('./Shared/Styles');
 
@@ -90,41 +92,49 @@ class OptionsPage extends Component<
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View style={styles.welcomePageWrapper}>
+      <View>
         <View style={styles.upperBar}>
           <Text style={styles.header}>OPCJE</Text>
         </View>
-        <View style={styles.options}>
-          <View style={styles.optionsLabel}>
-            <Text style={styles.optionsText}>Pytania tabu?</Text>
-            <Switch
-              thumbColor="#fff"
-              trackColor={{false: '#930856', true: '#D30C7B'}}
-              onValueChange={this.toggleTabu}
-              value={this.state.tabu}></Switch>
-            <View style={this.dynamicStyles().ageWarning}>
-              <Text style={styles.ageWarningText}>18+</Text>
+        <Separator />
+        <Separator />
+        <Separator />
+        <Separator />
+        <Separator />
+        <View style={styles.optionsWrapper}>
+          <View style={styles.options}>
+            <View style={styles.optionsLabel}>
+              <Text style={styles.optionsText}>Pytania tabu?</Text>
+              <Switch
+                thumbColor="#fff"
+                trackColor={{false: '#930856', true: '#D30C7B'}}
+                onValueChange={this.toggleTabu}
+                value={this.state.tabu}></Switch>
+              <View style={this.dynamicStyles().ageWarning}>
+                <Text style={styles.ageWarningText}>18+</Text>
+              </View>
+            </View>
+            <View style={styles.optionsLabel}>
+              <Text style={styles.optionsText}>Liczba osób:</Text>
+              <TouchableOpacity onPress={this.onPickerPeoplePress}>
+                <Text style={styles.optionsTextNumber}>
+                  {this.state.numberOfPeople}
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.optionsLabel}>
-            <Text style={styles.optionsText}>Liczba osób:</Text>
-            <TouchableOpacity onPress={this.onPickerPeoplePress}>
-              <Text style={styles.optionsTextNumber}>
-                {this.state.numberOfPeople}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <Separator />
+          <Separator />
+          <CustomButton
+            onClick={() =>
+              navigate('SpinPage', {
+                numberOfPeople: this.state.numberOfPeople,
+                tabu: this.state.tabu,
+              })
+            }
+            text="ROZPOCZNIJ"
+          />
         </View>
-        <TouchableOpacity
-          onPress={() =>
-            navigate('SpinPage', {
-              numberOfPeople: this.state.numberOfPeople,
-              tabu: this.state.tabu,
-            })
-          }
-          style={[s.Button, s.actionButtonBottomMargin]}>
-          <Text style={s.ButtonText}>ROZPOCZNIJ</Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -137,6 +147,13 @@ const styles = StyleSheet.create({
     fontFamily: 'babasNeue',
     fontSize: 60,
     color: 'white',
+  },
+  optionsWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 0,
   },
   upperBar: {
     width: '100%',
@@ -151,7 +168,6 @@ const styles = StyleSheet.create({
   },
   options: {
     paddingTop: 50,
-    marginTop: 70,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
@@ -188,11 +204,5 @@ const styles = StyleSheet.create({
     textDecorationColor: '#222',
     textDecorationLine: 'underline',
     textDecorationStyle: 'solid',
-  },
-  welcomePageWrapper: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
 });
