@@ -25,6 +25,7 @@ import {
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 import CustomButton from './Shared/CustomButton';
+import Separator from './Shared/Separator';
 
 let s = require('./Shared/Styles');
 
@@ -166,16 +167,6 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     }
   };
 
-  dynamicStyles() {
-    const styles = StyleSheet.create({
-      pieShadowSize: {
-        width: pieSize / 2 + 102,
-        height: pieSize / 2 + 102,
-      },
-    });
-    return styles;
-  }
-
   render() {
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
@@ -211,7 +202,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
                         )
                         .translate(-23, -23)
                         .translate(0, 105)}
-                      font={'40px "Helvetica Neue", "Helvetica", Arial'}
+                      font={'40px "Simplifica", "babasNeue", Arial'}
                       fill={'#000000'}
                       key={i}>
                       {item.emoji}
@@ -230,10 +221,6 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
               </Group>
             </Surface>
           </Animated.View>
-          <Image
-            style={[styles.wheelShadow, this.dynamicStyles().pieShadowSize]}
-            source={require('../Assets/wheelShadow.png')}
-          />
         </View>
         {!this.state.isInstructionOpen && (
           <CustomButton
@@ -249,6 +236,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             <View style={styles.upperBar}>
               <Text style={styles.instructionHeader}>INSTRUKCJA</Text>
             </View>
+            <Separator />
             <View style={styles.instructionDescriptionWrapper}>
               <Text style={styles.instructionDescriptionText}>
                 ‣ Niech każdy wybierze swoje emoji i je zapamięta.
@@ -257,6 +245,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
                 ‣ Wylosowany gracz musi odpowiedzieć na pytanie.
               </Text>
             </View>
+            <Separator />
             <CustomButton
               onClick={() => this.setState({isInstructionOpen: false})}
               text="START"
@@ -320,7 +309,6 @@ const styles = StyleSheet.create({
   },
   instructionDescriptionWrapper: {
     marginTop: pieSize / 2 + 90,
-    marginBottom: 15,
     width: '80%',
     backgroundColor: '#fafafa',
     borderRadius: 10,
