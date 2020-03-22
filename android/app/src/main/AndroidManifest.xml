@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.poznajmy_sie">
+  package="com.vengelstudio.kto_teraz">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

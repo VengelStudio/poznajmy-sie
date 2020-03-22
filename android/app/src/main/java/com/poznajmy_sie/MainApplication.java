@@ -1,4 +1,4 @@
-package com.poznajmy_sie;
+package com.vengelstudio.kto_teraz;
 
 import android.app.Application;
 import android.content.Context;

@@ -132,7 +132,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.poznajmy_sie"
+        applicationId "com.vengelstudio.kto_teraz"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
