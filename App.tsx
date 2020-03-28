@@ -20,9 +20,19 @@ const MainNavigator = createStackNavigator(
     CreditsPage: {screen: CreditsPage},
   },
   {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#D30C7B',
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#eee',
+      headerTitleStyle: {
+        textTransform: 'uppercase',
+        fontFamily: 'babasNeue',
+        fontSize: 40,
+        color: 'white',
+      },
     },
   },
 );

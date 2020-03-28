@@ -37,7 +37,7 @@ const d3 = {
   shape,
 };
 
-const pieSize = Dimensions.get('window').width;
+const pieSize = Dimensions.get('screen').width;
 
 interface SpinPageProps {
   context: IGlobalState;
@@ -90,6 +90,7 @@ const getWinnerIndex = (angle: number, wheelData: IWheelPie[]) => {
 class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   static navigationOptions = {
     title: 'Spin',
+    headerShown: false,
   };
 
   state = {
@@ -113,7 +114,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     this.state.wheelData = pieChart.map((pie, i) => {
       const paths = d3.shape
         .arc<PieArcDatum<any>>()
-        .outerRadius(pieSize / 2 - 75)
+        .outerRadius(pieSize / 2 - 25)
         .padAngle(0)
         .innerRadius(20)(pie);
 
@@ -201,7 +202,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
                             Math.PI,
                         )
                         .translate(-23, -23)
-                        .translate(0, 105)}
+                        .translate(0, deviceWidth / 2.5)}
                       font={'40px "Simplifica", "babasNeue", Arial'}
                       fill={'#000000'}
                       key={i}>
@@ -223,19 +224,18 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           </Animated.View>
         </View>
         {!this.state.isInstructionOpen && (
-          <CustomButton
-            onClick={() => {
-              this.pickQuestion();
-            }}
-            text="LOSUJ PYTANIE"
-          />
+          <View style={styles.spinButton}>
+            <CustomButton
+              onClick={() => {
+                this.pickQuestion();
+              }}
+              text="LOSUJ PYTANIE"
+            />
+          </View>
         )}
 
         {this.state.isInstructionOpen && (
           <View style={styles.instructionPageWrapper}>
-            <View style={styles.upperBar}>
-              <Text style={styles.instructionHeader}>INSTRUKCJA</Text>
-            </View>
             <Separator />
             <View style={styles.instructionDescriptionWrapper}>
               <Text style={styles.instructionDescriptionText}>
@@ -244,12 +244,14 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
               <Text style={styles.instructionDescriptionText}>
                 ‣ Wylosowany gracz musi odpowiedzieć na pytanie.
               </Text>
+              <Separator />
+              <View style={styles.closeInstructionButton}>
+                <CustomButton
+                  onClick={() => this.setState({isInstructionOpen: false})}
+                  text="START"
+                />
+              </View>
             </View>
-            <Separator />
-            <CustomButton
-              onClick={() => this.setState({isInstructionOpen: false})}
-              text="START"
-            />
           </View>
         )}
       </View>
@@ -269,13 +271,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#0000', // invisible color
     zIndex: 10,
     elevation: 1,
-    marginTop: 26,
+    marginTop: 10,
   },
   spinnerArrow: {
     position: 'absolute',
+    height: 20,
     zIndex: 20,
     elevation: 2,
-    marginTop: 26,
+    top: 10,
   },
   wheelShadow: {
     alignSelf: 'center',
@@ -287,39 +290,40 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 200,
   },
-
+  spinButton: {
+    position: 'absolute',
+    bottom: 30,
+  },
   instructionHeader: {
     fontFamily: 'babasNeue',
     fontSize: 60,
     color: 'white',
   },
-  upperBar: {
-    width: deviceWidth,
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#D30C7B',
-  },
   instructionPageWrapper: {
     flex: 1,
     position: 'absolute',
+    bottom: 20,
+    padding: 10,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   instructionDescriptionWrapper: {
-    marginTop: pieSize / 2 + 90,
-    width: '80%',
     backgroundColor: '#fafafa',
     borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    padding: 10,
+    paddingBottom: 0,
     elevation: 4,
+    flexDirection: 'column',
   },
   instructionDescriptionText: {
     fontSize: 20,
     marginTop: 5,
     color: '#4392F1',
     fontFamily: 'Simplifica',
+  },
+  closeInstructionButton: {
+    flex: 1,
+    alignItems: 'center',
   },
 });

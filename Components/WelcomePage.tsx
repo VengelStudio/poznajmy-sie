@@ -9,7 +9,8 @@ const deviceHeight = Dimensions.get('screen').height;
 
 class WelcomePage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'Welcome page',
+    title: 'Ekran główny',
+    headerShown: false,
   };
 
   render() {
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
   welcomePageWrapper: {
     paddingTop: 0,
     flex: 1,
-    backgroundColor: '#ccc',
     alignItems: 'center',
     justifyContent: 'center',
   },

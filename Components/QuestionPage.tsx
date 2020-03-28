@@ -1,13 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  Button,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-  Image,
-} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
 import {IWheelPie} from './SpinPage';
@@ -18,7 +10,8 @@ let s = require('./Shared/Styles');
 
 class QuestionPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'Question page',
+    title: 'Pytanie',
+    headerShown: false,
   };
 
   get questionText() {
@@ -66,7 +59,9 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         </View>
         <Separator />
         <Separator />
-        <CustomButton onClick={() => navigate('SpinPage')} text="ZAMKNIJ" />
+        <View style={styles.closeButton}>
+          <CustomButton onClick={() => navigate('SpinPage')} text="ZAMKNIJ" />
+        </View>
       </View>
     );
   }
@@ -91,4 +86,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   emoji: {fontSize: 72},
+  closeButton: {
+    flex: 1,
+    position: 'absolute',
+    alignItems: 'center',
+    left: 0,
+    right: 0,
+    bottom: 30,
+  },
 });
