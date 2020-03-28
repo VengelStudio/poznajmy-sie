@@ -1,18 +1,11 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  StyleSheet,
-  Button,
-} from 'react-native';
+import {Text, View, StyleSheet, Dimensions} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
-import {transformAsync} from '@babel/core';
 import Separator from './Shared/Separator';
 import CustomButton from './Shared/CustomButton';
 
 let s = require('./Shared/Styles');
+const deviceHeight = Dimensions.get('screen').height;
 
 class WelcomePage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
@@ -23,11 +16,13 @@ class WelcomePage extends Component<NavigationInjectedProps> {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.welcomePageWrapper}>
-        <Text style={styles.header}>KTO {'\n'}TERAZ?</Text>
+        <View>
+          <Text style={styles.header}>KTO</Text>
+          <Text style={styles.header}>TERAZ?</Text>
+        </View>
         <Separator />
         <Separator />
-        <Separator />
-        <View style={[styles.btnWrapper, s.actionButtonBottomMargin]}>
+        <View style={[styles.btnWrapper]}>
           <CustomButton onClick={() => navigate('OptionsPage')} text="DALEJ" />
           <Separator />
           <CustomButton
@@ -44,32 +39,20 @@ class WelcomePage extends Component<NavigationInjectedProps> {
 export default withNavigation(WelcomePage);
 
 const styles = StyleSheet.create({
+  welcomePageWrapper: {
+    paddingTop: 0,
+    flex: 1,
+    backgroundColor: '#ccc',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   header: {
     fontFamily: 'babasNeue',
-    marginTop: 150,
     fontSize: 80,
+    paddingTop: 80,
+    lineHeight: 0.1,
+    textAlign: 'left',
     color: '#D30C7B',
   },
-  welcomePageWrapper: {
-    padding: 0,
-    margin: 0,
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  ditsButtonText: {
-    fontSize: 18,
-    fontFamily: 'Simplifica',
-    color: '#222222',
-    paddingVertical: 50,
-    paddingHorizontal: 100,
-    paddingTop: 20,
-  },
-  btnWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  btnWrapper: {},
 });
