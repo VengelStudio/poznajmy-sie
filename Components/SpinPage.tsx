@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     height: 20,
     zIndex: 20,
     elevation: 2,
-    top: 30,
+    top: deviceWidth / 15,
   },
   wheelShadow: {
     alignSelf: 'center',
