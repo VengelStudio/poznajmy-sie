@@ -660,5 +660,210 @@
     "text": "Jaki jest najdziwniejszy dźwięk jaki słyszałeś?",
     "probability": 0.5,
     "isTabu": false
+  },
+  {
+    "text": "Pisałaś/eś kiedyś pamiętnik lub bloga?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Poznałaś/eś kiedyś kogoś przez Internet?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy przeklinasz, a jak tak to czy często?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Gdybyś nie musiał/a spać, to co byś zrobił/a z zaoszczędzonym czasem?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Co denerwuje Cię w płci przeciwnej?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Co podba Ci się w płci przeciwnej?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy paliłeś kiedyś 'po studencku'?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Na co zwracasz bardziej uwagę, na intelekt czy na wygląd?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy robisz coś zupełnie inaczej niż inni, jak tak to co?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy masz jakieś zainteresowanie uważane przez innych za dziwne?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy byłeś/łaś kiedyś EMO?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Wolisz spędzać wolny czas pasywnie czy aktywnie?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy często dzielisz się swoimi problemami, czy tłumisz je w sobie?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy zrobiłeś/łaś sobie fryzure, której potem żałowałeś/łaś?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy masz jakieś swoje powiedzonko, jak tak to jakie?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Bierzesz prysznic rano czy wieczorem?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Wolisz uprawiać seks nago czy z jakimiś elementami ubioru?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy wolisz mieć młodszą czy starszą drugą połówkę?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy patrzysz na jakość czy na cene przy kupnie alkoholu?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy uważasz się za osobę atrakcyjną dla płci przeciwnej?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Kogo z graczy chciałbyś/łabyś zobaczyć nago?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Cy chciałbyś/łabyś sie przeprowadzić do innego kraju, jak tak to do jakiego?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy wstydzisz sie zaczynać rozmowę z nieznajomymi?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy lubisz czarny humor?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Jaką umiejętność chciałbyś/łabyś opanować do perfekcji?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Jaka jest twoja najbardziej sprośna fantazja?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Z iloma partnerami spałeś?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "W jakim najdziwniejszym miejscu się kochałeś?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy kiedykolwiek uprawiałeś stosunek analny?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy fantazjujesz o seksie ze znaną osobą?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy spałeś kiedyś z nieznajomą?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy zdarzało ci się płakać po stosunku?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Jaki jest twój największy fetysz?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy wierzysz w miłość do grobowej deski?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy wierzysz w miłość od pierwszego wejrzenia?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy byłbyś/łabyś w stanie zmienić się dla drugiej połówki?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Ile miałeś/łaś lat podczas pierwszego pocałunku?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Ile miałeś/łaś lat podczas pierwszego stosunku?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Jaka była najdziewniejsza rzecz jaką zrobiłeś/łaś aby komuś zaimponować?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy jesteś w relacji Friends With Benefits?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy chciałbyś uczestniczyć w stosunku z więcej niż jedną osobą?",
+    "probability": 0.5,
+    "isTabu": true
   }
 ]
