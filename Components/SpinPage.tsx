@@ -114,7 +114,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     this.state.wheelData = pieChart.map((pie, i) => {
       const paths = d3.shape
         .arc<PieArcDatum<any>>()
-        .outerRadius(pieSize / 2 - 25)
+        .outerRadius(pieSize / 2 - 50)
         .padAngle(0)
         .innerRadius(20)(pie);
 
@@ -201,8 +201,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
                           (((item.startAngle + item.endAngle) / 2) * 180) /
                             Math.PI,
                         )
-                        .translate(-23, -23)
-                        .translate(0, deviceWidth / 2.5)}
+                        .translate(-deviceWidth / 15, -deviceWidth / 15)
+                        .translate(0, deviceWidth / 3.2)}
                       font={'40px "Simplifica", "babasNeue", Arial'}
                       fill={'#000000'}
                       key={i}>
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     height: 20,
     zIndex: 20,
     elevation: 2,
-    top: 10,
+    top: 30,
   },
   wheelShadow: {
     alignSelf: 'center',
