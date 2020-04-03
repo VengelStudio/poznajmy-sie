@@ -1,6 +1,6 @@
 {
-  "name": "poznajmy_sie",
-  "version": "0.0.2",
+  "name": "kto_teraz",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

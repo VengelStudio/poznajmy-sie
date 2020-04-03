@@ -1,4 +1,4 @@
-package com.poznajmy_sie;
+package com.vengelstudio.kto_teraz;
 
 import com.facebook.react.ReactActivity;
 

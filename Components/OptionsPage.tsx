@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, Switch, StyleSheet} from 'react-native';
-import {NavigationInjectedProps, withNavigation} from 'react-navigation';
+import {NavigationInjectedProps} from 'react-navigation';
 import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 import {IGlobalState} from './Context/context';
 import withContext from './Context/ContextConsumerHOC';
@@ -17,7 +17,7 @@ class OptionsPage extends Component<
   NavigationInjectedProps & OptionsPageProps
 > {
   static navigationOptions = {
-    title: 'Game options',
+    title: 'Opcje',
   };
   state = {
     numberOfPeople: 2,
@@ -92,15 +92,7 @@ class OptionsPage extends Component<
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View>
-        <View style={styles.upperBar}>
-          <Text style={styles.header}>OPCJE</Text>
-        </View>
-        <Separator />
-        <Separator />
-        <Separator />
-        <Separator />
-        <Separator />
+      <View style={styles.optionsPageWrapper}>
         <View style={styles.optionsWrapper}>
           <View style={styles.options}>
             <View style={styles.optionsLabel}>
@@ -114,6 +106,7 @@ class OptionsPage extends Component<
                 <Text style={styles.ageWarningText}>18+</Text>
               </View>
             </View>
+
             <View style={styles.optionsLabel}>
               <Text style={styles.optionsText}>Liczba osób:</Text>
               <TouchableOpacity onPress={this.onPickerPeoplePress}>
@@ -123,7 +116,6 @@ class OptionsPage extends Component<
               </TouchableOpacity>
             </View>
           </View>
-          <Separator />
           <Separator />
           <CustomButton
             onClick={() =>
@@ -143,10 +135,10 @@ class OptionsPage extends Component<
 export default withContext(OptionsPage);
 
 const styles = StyleSheet.create({
-  header: {
-    fontFamily: 'babasNeue',
-    fontSize: 60,
-    color: 'white',
+  optionsPageWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
   optionsWrapper: {
     display: 'flex',
@@ -154,13 +146,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 0,
-  },
-  upperBar: {
-    width: '100%',
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#D30C7B',
   },
   ageWarningText: {
     fontFamily: 'Simplifica',
