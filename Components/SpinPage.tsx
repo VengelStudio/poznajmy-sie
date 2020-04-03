@@ -280,12 +280,6 @@ const styles = StyleSheet.create({
     elevation: 2,
     top: deviceWidth / 15,
   },
-  wheelShadow: {
-    alignSelf: 'center',
-    top: 60,
-    position: 'absolute',
-    zIndex: -10,
-  },
   wheelLabels: {
     position: 'absolute',
     zIndex: 200,
