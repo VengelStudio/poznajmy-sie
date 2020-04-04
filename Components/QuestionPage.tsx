@@ -6,8 +6,6 @@ import {IWheelPie} from './SpinPage';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 
-let s = require('./Shared/Styles');
-
 class QuestionPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
     title: 'Pytanie',

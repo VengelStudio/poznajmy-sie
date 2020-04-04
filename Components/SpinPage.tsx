@@ -6,9 +6,7 @@ import {
   Animated,
   Easing,
   Dimensions,
-  TouchableOpacity,
   Text,
-  Image,
 } from 'react-native';
 import {withNavigation, NavigationInjectedProps} from 'react-navigation';
 import withContext from './Context/ContextConsumerHOC';
@@ -18,7 +16,6 @@ import * as shape from 'd3-shape';
 import {PieArcDatum} from 'd3-shape';
 import {Question} from './Utilities/data.interface';
 import {
-  getRandomColor,
   getRandomQuestion,
   generateRandomColors,
   getEmoji,
@@ -26,8 +23,6 @@ import {
 import ArrowDown from './Shared/ArrowDown';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
-
-let s = require('./Shared/Styles');
 
 // @ts-ignore
 const {Surface, Group, Shape, Text: ARTText, Transform} = ART;
@@ -103,9 +98,9 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
   constructor(props: any) {
     super(props);
-    const numberOfPeople = this.props.navigation.state.params.numberOfPeople;
-    const tabu = this.props.navigation.state.params.tabu;
-    const data = new Array(numberOfPeople).fill(1); //This 5 is number of people which user choosed in options
+    const numberOfPeople = (this.props.navigation.state.params as any)
+      .numberOfPeople;
+    const data = new Array(numberOfPeople).fill(1); //number of people which user chose in options
 
     const pieChart = d3.shape.pie()(data);
 
@@ -176,10 +171,6 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
     const x = pieSize / 2;
     const y = pieSize / 2;
-
-    const isNumberOfPeopleEven = () => {
-      return this.state.wheelData.length % 2 === 0;
-    };
 
     return (
       <View style={styles.welcomePageWrapper}>

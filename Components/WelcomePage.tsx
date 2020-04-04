@@ -4,9 +4,6 @@ import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import Separator from './Shared/Separator';
 import CustomButton from './Shared/CustomButton';
 
-let s = require('./Shared/Styles');
-const deviceHeight = Dimensions.get('screen').height;
-
 class WelcomePage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
     title: 'Ekran główny',

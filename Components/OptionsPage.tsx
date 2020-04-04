@@ -41,21 +41,12 @@ class OptionsPage extends Component<
       },
       // done click
       (error: any, data: any) => {
-        if (error) {
-          console.error(error);
-        } else {
-          console.log(data);
+        if (!error) {
           this.setState({numberOfPeople: parseInt(data) - 1});
         }
       },
       // cancel click
-      (error: any, data: any) => {
-        if (error) {
-          console.error(error);
-        } else {
-          console.log(data);
-        }
-      },
+      (error: any, data: any) => {},
     );
   };
 
