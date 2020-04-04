@@ -7,11 +7,6 @@ import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 
 class QuestionPage extends Component<NavigationInjectedProps> {
-  static navigationOptions = {
-    title: 'Pytanie',
-    headerShown: false,
-  };
-
   get questionText() {
     const question: Question = (this.props.navigation.state.params as any)
       .question;

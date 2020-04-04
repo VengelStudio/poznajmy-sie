@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Dimensions} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import Separator from './Shared/Separator';
 import CustomButton from './Shared/CustomButton';
 
 class WelcomePage extends Component<NavigationInjectedProps> {
-  static navigationOptions = {
-    title: 'Ekran główny',
-    headerShown: false,
-  };
-
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -20,12 +15,12 @@ class WelcomePage extends Component<NavigationInjectedProps> {
         </View>
         <Separator />
         <Separator />
-        <View style={[styles.btnWrapper]}>
+        <View>
           <CustomButton onClick={() => navigate('OptionsPage')} text="DALEJ" />
           <Separator />
           <CustomButton
             onClick={() => navigate('CreditsPage')}
-            text="CREDITS"
+            text="AUTORZY"
             secondary
           />
         </View>
@@ -51,5 +46,4 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: '#D30C7B',
   },
-  btnWrapper: {},
 });

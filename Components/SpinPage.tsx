@@ -83,11 +83,6 @@ const getWinnerIndex = (angle: number, wheelData: IWheelPie[]) => {
 };
 
 class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
-  static navigationOptions = {
-    title: 'Spin',
-    headerShown: false,
-  };
-
   state = {
     currentQuestion: null,
     spinValue: new Animated.Value(0),

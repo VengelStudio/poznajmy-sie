@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, Switch, StyleSheet} from 'react-native';
-import {NavigationInjectedProps} from 'react-navigation';
+import {
+  withNavigation,
+  NavigationInjectedProps,
+  NavigationScreenProp,
+  NavigationState,
+  NavigationParams,
+} from 'react-navigation';
 import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 import {IGlobalState} from './Context/context';
 import withContext from './Context/ContextConsumerHOC';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 
-let s = require('./Shared/Styles');
-
-interface OptionsPageProps {
+interface Props {
   context: IGlobalState;
 }
 
-class OptionsPage extends Component<
-  NavigationInjectedProps & OptionsPageProps
-> {
-  static navigationOptions = {
-    title: 'Opcje',
-  };
+class OptionsPage extends Component<Props> {
   state = {
     numberOfPeople: 2,
     tabu: false,

@@ -24,7 +24,8 @@ function Item({name, task}: any) {
 
 class CreditsPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'Credits',
+    title: 'Autorzy',
+    headerShown: true,
   };
 
   render() {
