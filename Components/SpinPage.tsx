@@ -209,10 +209,9 @@ const styles = StyleSheet.create({
   },
   spinnerArrow: {
     position: 'absolute',
-    height: 20,
     zIndex: 20,
     elevation: 2,
-    top: deviceWidth / 15,
+    top: 0,
   },
   wheelLabels: {
     position: 'absolute',
