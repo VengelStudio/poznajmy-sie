@@ -4,10 +4,6 @@ import * as scale from 'd3-scale';
 import * as shape from 'd3-shape';
 import {PieArcDatum} from 'd3-shape';
 
-import {ART} from 'react-native';
-// @ts-ignore
-const {Pattern} = ART;
-
 const d3 = {
   scale,
   shape,
@@ -120,7 +116,7 @@ export const generatePieChart = (numberOfPeople: number, fullWidth: number) => {
   return pieChart.map((pie, i) => {
     const paths = d3.shape
       .arc<PieArcDatum<any>>()
-      .outerRadius(fullWidth / 2 - 50)
+      .outerRadius(fullWidth / 2 - 15)
       .padAngle(0)
       .innerRadius(20)(pie);
 

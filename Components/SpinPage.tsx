@@ -111,7 +111,8 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
               Math.PI +
               180}deg`,
           },
-          {translateY: deviceWidth / 3.8},
+          {translateY: deviceWidth / 2 - 45},
+          {scale: 0.8 + 0.2 * (1 / this.state.wheelData.length)},
         ],
       },
     });
