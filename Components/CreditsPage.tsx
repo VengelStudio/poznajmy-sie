@@ -1,18 +1,6 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  FlatList,
-  Dimensions,
-} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
-
-let s = require('./Shared/Styles');
 
 const data = [
   {
@@ -36,7 +24,8 @@ function Item({name, task}: any) {
 
 class CreditsPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'Credits',
+    title: 'Autorzy',
+    headerShown: true,
   };
 
   render() {
@@ -46,7 +35,7 @@ class CreditsPage extends Component<NavigationInjectedProps> {
         <FlatList
           data={data}
           renderItem={({item}) => <Item name={item.name} task={item.task} />}
-          keyExtractor={item => item.name}
+          keyExtractor={(item) => item.name}
         />
       </SafeAreaView>
     );

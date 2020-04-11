@@ -33,6 +33,7 @@ const MainNavigator = createStackNavigator(
         fontSize: 40,
         color: 'white',
       },
+      headerShown: false,
     },
   },
 );
@@ -63,7 +64,7 @@ class App extends React.Component {
     let filteredQuestions = shuffle(questions);
 
     if (!allowTabu) {
-      filteredQuestions = filteredQuestions.filter(question => {
+      filteredQuestions = filteredQuestions.filter((question) => {
         return question.isTabu === false;
       });
     }

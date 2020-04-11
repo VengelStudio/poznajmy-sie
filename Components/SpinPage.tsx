@@ -6,49 +6,33 @@ import {
   Animated,
   Easing,
   Dimensions,
-  TouchableOpacity,
   Text,
   Image,
 } from 'react-native';
 import {withNavigation, NavigationInjectedProps} from 'react-navigation';
 import withContext from './Context/ContextConsumerHOC';
 import {IGlobalState} from './Context/context';
-import * as scale from 'd3-scale';
-import * as shape from 'd3-shape';
-import {PieArcDatum} from 'd3-shape';
 import {Question} from './Utilities/data.interface';
 import {
-  getRandomColor,
   getRandomQuestion,
-  generateRandomColors,
-  getEmoji,
+  getRandomSpinValue,
+  getWinnerColor,
+  getWinnerIndex,
+  generatePieChart,
+  getEmojiImage,
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
-
-let s = require('./Shared/Styles');
+import {IWheelPie} from './Utilities/models.interface';
 
 // @ts-ignore
-const {Surface, Group, Shape, Text: ARTText, Transform} = ART;
-
-const d3 = {
-  scale,
-  shape,
-};
+const {Surface, Group, Shape} = ART;
 
 const pieSize = Dimensions.get('screen').width;
 
 interface SpinPageProps {
   context: IGlobalState;
-}
-
-export interface IWheelPie {
-  paths: string;
-  color: string;
-  startAngle: number;
-  endAngle: number;
-  emoji: string;
 }
 
 interface State {
@@ -59,40 +43,7 @@ interface State {
   isInstructionOpen: boolean;
 }
 
-const getRandomSpinValue = () => {
-  const val = Math.random() * (1 - 0.25) + 0.25;
-  return val;
-};
-
-const getWinnerColor = (value: number, wheelData: IWheelPie[]) => {
-  const rawAngle = value * 6 * Math.PI;
-  const cleanAngle = rawAngle % (2 * Math.PI);
-
-  for (let i = wheelData.length - 1; i >= 0; i--) {
-    if (2 * Math.PI - cleanAngle >= wheelData[i].startAngle) {
-      return wheelData[i];
-    }
-  }
-};
-
-const getWinnerIndex = (angle: number, wheelData: IWheelPie[]) => {
-  const rawAngle = angle * 6 * Math.PI;
-  const cleanAngle = rawAngle % (2 * Math.PI);
-
-  for (let i = wheelData.length - 1; i >= 0; i--) {
-    if (2 * Math.PI - cleanAngle >= wheelData[i].startAngle) {
-      return i;
-    }
-  }
-  return -1;
-};
-
 class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
-  static navigationOptions = {
-    title: 'Spin',
-    headerShown: false,
-  };
-
   state = {
     currentQuestion: null,
     spinValue: new Animated.Value(0),
@@ -103,29 +54,11 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
   constructor(props: any) {
     super(props);
-    const numberOfPeople = this.props.navigation.state.params.numberOfPeople;
-    const tabu = this.props.navigation.state.params.tabu;
-    const data = new Array(numberOfPeople).fill(1); //This 5 is number of people which user choosed in options
 
-    const pieChart = d3.shape.pie()(data);
+    const numberOfPeople = (this.props.navigation.state.params as any)
+      .numberOfPeople;
 
-    const generatedColors = generateRandomColors(numberOfPeople);
-
-    this.state.wheelData = pieChart.map((pie, i) => {
-      const paths = d3.shape
-        .arc<PieArcDatum<any>>()
-        .outerRadius(pieSize / 2 - 50)
-        .padAngle(0)
-        .innerRadius(20)(pie);
-
-      return {
-        paths,
-        color: generatedColors[i],
-        startAngle: pie.startAngle,
-        endAngle: pie.endAngle,
-        emoji: getEmoji(i),
-      } as IWheelPie;
-    });
+    this.state.wheelData = generatePieChart(numberOfPeople, pieSize);
   }
 
   pickQuestion = () => {
@@ -158,15 +91,34 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             this.props.navigation.navigate('QuestionPage', {
               question: this.state.currentQuestion,
               winner: getWinnerColor(toValue, this.state.wheelData),
-              emoji: this.state.wheelData[
+              index: this.state.wheelData[
                 getWinnerIndex(toValue, this.state.wheelData)
-              ].emoji,
+              ].index,
             });
           });
         }
       });
     }
   };
+
+  getEmojiStyle(item: IWheelPie) {
+    const styles = StyleSheet.create({
+      emoji: {
+        position: 'absolute',
+        transform: [
+          {
+            rotate: `${((item.startAngle + item.endAngle) * 0.5 * 180) /
+              Math.PI +
+              180}deg`,
+          },
+          {translateY: deviceWidth / 2 - 45},
+          {scale: 0.8 + 0.2 * (1 / this.state.wheelData.length)},
+        ],
+      },
+    });
+
+    return styles;
+  }
 
   render() {
     const spin = this.state.spinValue.interpolate({
@@ -177,10 +129,6 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     const x = pieSize / 2;
     const y = pieSize / 2;
 
-    const isNumberOfPeopleEven = () => {
-      return this.state.wheelData.length % 2 === 0;
-    };
-
     return (
       <View style={styles.welcomePageWrapper}>
         <View style={[styles.spinnerArrow]}>
@@ -189,29 +137,15 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
         <View style={styles.spinner}>
           <Animated.View
             style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
-            <Surface width={pieSize} height={pieSize}>
-              <Group x={x} y={y} transform={new Transform().rotate(180)}>
-                {this.state.wheelData.map((item: IWheelPie, i: number) => {
-                  console.log(i);
-
-                  return (
-                    <ARTText
-                      transform={new Transform()
-                        .rotate(
-                          (((item.startAngle + item.endAngle) / 2) * 180) /
-                            Math.PI,
-                        )
-                        .translate(-deviceWidth / 15, -deviceWidth / 15)
-                        .translate(0, deviceWidth / 3.2)}
-                      font={'40px "Simplifica", "babasNeue", Arial'}
-                      fill={'#000000'}
-                      key={i}>
-                      {item.emoji}
-                    </ARTText>
-                  );
-                })}
-              </Group>
-            </Surface>
+            {this.state.wheelData.map((item: IWheelPie, i: number) => {
+              return (
+                <Image
+                  style={this.getEmojiStyle(item).emoji}
+                  source={getEmojiImage(i)}
+                  key={i}
+                />
+              );
+            })}
           </Animated.View>
           <Animated.View style={{transform: [{rotate: spin}]}}>
             <Surface width={pieSize} height={pieSize}>
@@ -239,15 +173,18 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             <Separator />
             <View style={styles.instructionDescriptionWrapper}>
               <Text style={styles.instructionDescriptionText}>
-                ‣ Niech każdy wybierze swoje emoji i je zapamięta.
+                ‣ Każdy wybiera swoje pole.
               </Text>
               <Text style={styles.instructionDescriptionText}>
-                ‣ Wylosowany gracz musi odpowiedzieć na pytanie.
+                ‣ Wylosowany gracz odpowiada na pytanie.
               </Text>
               <Separator />
               <View style={styles.closeInstructionButton}>
                 <CustomButton
-                  onClick={() => this.setState({isInstructionOpen: false})}
+                  onClick={() => {
+                    this.setState({isInstructionOpen: false});
+                    this.pickQuestion();
+                  }}
                   text="START"
                 />
               </View>
@@ -271,18 +208,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#0000', // invisible color
     zIndex: 10,
     elevation: 1,
-    marginTop: 10,
+    marginTop: 0,
   },
   spinnerArrow: {
     position: 'absolute',
-    height: 20,
     zIndex: 20,
     elevation: 2,
-    top: deviceWidth / 15,
+    top: 0,
   },
   wheelLabels: {
     position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     zIndex: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: deviceWidth,
+    height: deviceWidth,
   },
   spinButton: {
     position: 'absolute',
@@ -297,7 +240,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'absolute',
     bottom: 20,
-    padding: 10,
+    padding: 20,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',

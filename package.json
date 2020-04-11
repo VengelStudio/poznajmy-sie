@@ -1,6 +1,6 @@
 {
   "name": "kto_teraz",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -22,6 +22,9 @@
     "react-native-number-picker-ultra": "^1.2.1",
     "react-native-safe-area-context": "^0.6.0",
     "react-native-screens": "^2.0.0-beta.2",
+    "react-native-svg": "^12.0.3",
+    "react-native-svg-transformer": "^0.14.3",
+    "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^4.1.1",
     "react-navigation-stack": "^2.1.1"
   },

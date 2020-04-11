@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, Switch, StyleSheet} from 'react-native';
-import {NavigationInjectedProps} from 'react-navigation';
+import {
+  withNavigation,
+  NavigationInjectedProps,
+  NavigationScreenProp,
+  NavigationState,
+  NavigationParams,
+} from 'react-navigation';
 import RNNumberPickerLibrary from 'react-native-number-picker-ultra';
 import {IGlobalState} from './Context/context';
 import withContext from './Context/ContextConsumerHOC';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 
-let s = require('./Shared/Styles');
-
-interface OptionsPageProps {
+interface Props {
   context: IGlobalState;
 }
 
-class OptionsPage extends Component<
-  NavigationInjectedProps & OptionsPageProps
-> {
-  static navigationOptions = {
-    title: 'Opcje',
-  };
+class OptionsPage extends Component<Props> {
   state = {
     numberOfPeople: 2,
     tabu: false,
@@ -41,21 +40,12 @@ class OptionsPage extends Component<
       },
       // done click
       (error: any, data: any) => {
-        if (error) {
-          console.error(error);
-        } else {
-          console.log(data);
+        if (!error) {
           this.setState({numberOfPeople: parseInt(data) - 1});
         }
       },
       // cancel click
-      (error: any, data: any) => {
-        if (error) {
-          console.error(error);
-        } else {
-          console.log(data);
-        }
-      },
+      (error: any, data: any) => {},
     );
   };
 
@@ -66,28 +56,6 @@ class OptionsPage extends Component<
 
     this.props.context.filterQuestions(!this.state.tabu);
   };
-
-  dynamicStyles() {
-    const styles = StyleSheet.create({
-      ageWarning: {
-        position: 'absolute',
-        right: -36,
-        backgroundColor: '#fffe',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 2,
-        borderColor: '#db3c45',
-        borderRadius: 100,
-        color: '#333',
-        padding: 2,
-        width: 30,
-        height: 30,
-        opacity: this.state.tabu ? 1 : 0,
-      },
-    });
-
-    return styles;
-  }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -101,8 +69,9 @@ class OptionsPage extends Component<
                 thumbColor="#fff"
                 trackColor={{false: '#930856', true: '#D30C7B'}}
                 onValueChange={this.toggleTabu}
-                value={this.state.tabu}></Switch>
-              <View style={this.dynamicStyles().ageWarning}>
+                value={this.state.tabu}
+              />
+              <View style={styles.ageWarning}>
                 <Text style={styles.ageWarningText}>18+</Text>
               </View>
             </View>
@@ -167,7 +136,20 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
   },
-
+  ageWarning: {
+    position: 'absolute',
+    right: -36,
+    backgroundColor: '#fffe',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#db3c45',
+    borderRadius: 100,
+    color: '#333',
+    padding: 2,
+    width: 30,
+    height: 30,
+  },
   optionsLabel: {
     flexDirection: 'row',
     justifyContent: 'space-between',

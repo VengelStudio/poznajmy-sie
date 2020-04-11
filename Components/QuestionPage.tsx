@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image, Dimensions} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
-import {IWheelPie} from './SpinPage';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
+import {IWheelPie} from './Utilities/models.interface';
+import {getEmojiImage} from './Utilities/methods';
 
-let s = require('./Shared/Styles');
+const deviceWidth = Dimensions.get('screen').width;
 
 class QuestionPage extends Component<NavigationInjectedProps> {
-  static navigationOptions = {
-    title: 'Pytanie',
-    headerShown: false,
-  };
-
   get questionText() {
     const question: Question = (this.props.navigation.state.params as any)
       .question;
@@ -24,8 +20,8 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return (this.props.navigation.state.params as any).winner as IWheelPie;
   }
 
-  get emoji() {
-    return (this.props.navigation.state.params as any).emoji;
+  get index() {
+    return (this.props.navigation.state.params as any).index;
   }
 
   dynamicStyles() {
@@ -50,7 +46,7 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return (
       <View style={this.dynamicStyles().questionWrapperStyles}>
         <View>
-          <Text style={styles.emoji}>{this.emoji}</Text>
+          <Image style={styles.emojiStyle} source={getEmojiImage(this.index)} />
         </View>
         <Separator />
         <Separator />
@@ -85,7 +81,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderRadius: 10,
   },
-  emoji: {fontSize: 72},
+  emojiStyle: {},
   closeButton: {
     flex: 1,
     position: 'absolute',

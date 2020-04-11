@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 4,
+    opacity: 0.9,
   },
   buttonText: {
     fontFamily: 'simplifica',

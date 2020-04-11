@@ -14,6 +14,7 @@ const ArrowDown = () => {
 
 const styles = StyleSheet.create({
   arrowShadow: {
+    top: -11,
     width: 75,
     height: 75,
     resizeMode: 'contain',
