@@ -173,15 +173,18 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             <Separator />
             <View style={styles.instructionDescriptionWrapper}>
               <Text style={styles.instructionDescriptionText}>
-                ‣ Niech każdy wybierze swoje emoji i je zapamięta.
+                ‣ Każdy wybiera swoje pole.
               </Text>
               <Text style={styles.instructionDescriptionText}>
-                ‣ Wylosowany gracz musi odpowiedzieć na pytanie.
+                ‣ Wylosowany gracz odpowiada na pytanie.
               </Text>
               <Separator />
               <View style={styles.closeInstructionButton}>
                 <CustomButton
-                  onClick={() => this.setState({isInstructionOpen: false})}
+                  onClick={() => {
+                    this.setState({isInstructionOpen: false});
+                    this.pickQuestion();
+                  }}
                   text="START"
                 />
               </View>
@@ -237,7 +240,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'absolute',
     bottom: 20,
-    padding: 10,
+    padding: 20,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',

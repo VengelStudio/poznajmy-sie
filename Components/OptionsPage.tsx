@@ -57,28 +57,6 @@ class OptionsPage extends Component<Props> {
     this.props.context.filterQuestions(!this.state.tabu);
   };
 
-  dynamicStyles() {
-    const styles = StyleSheet.create({
-      ageWarning: {
-        position: 'absolute',
-        right: -36,
-        backgroundColor: '#fffe',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 2,
-        borderColor: '#db3c45',
-        borderRadius: 100,
-        color: '#333',
-        padding: 2,
-        width: 30,
-        height: 30,
-        opacity: this.state.tabu ? 1 : 0,
-      },
-    });
-
-    return styles;
-  }
-
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -91,8 +69,9 @@ class OptionsPage extends Component<Props> {
                 thumbColor="#fff"
                 trackColor={{false: '#930856', true: '#D30C7B'}}
                 onValueChange={this.toggleTabu}
-                value={this.state.tabu}></Switch>
-              <View style={this.dynamicStyles().ageWarning}>
+                value={this.state.tabu}
+              />
+              <View style={styles.ageWarning}>
                 <Text style={styles.ageWarningText}>18+</Text>
               </View>
             </View>
@@ -157,7 +136,20 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
   },
-
+  ageWarning: {
+    position: 'absolute',
+    right: -36,
+    backgroundColor: '#fffe',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#db3c45',
+    borderRadius: 100,
+    color: '#333',
+    padding: 2,
+    width: 30,
+    height: 30,
+  },
   optionsLabel: {
     flexDirection: 'row',
     justifyContent: 'space-between',
