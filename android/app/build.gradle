@@ -135,8 +135,8 @@ android {
         applicationId "com.vengelstudio.kto_teraz"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "Frost Bite"
+        versionCode 4
+        versionName "Lost Lagoon"
     }
     splits {
         abi {
