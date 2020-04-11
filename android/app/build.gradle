@@ -135,8 +135,8 @@ android {
         applicationId "com.vengelstudio.kto_teraz"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "Haunted Palm Castle"
+        versionCode 3
+        versionName "Frost Bite"
     }
     splits {
         abi {
