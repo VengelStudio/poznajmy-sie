@@ -131,10 +131,10 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
 
     return (
       <View style={styles.welcomePageWrapper}>
-        <View style={[styles.spinnerArrow]}>
-          <ArrowDown />
-        </View>
         <View style={styles.spinner}>
+          <View style={[styles.spinnerArrow]}>
+            <ArrowDown />
+          </View>
           <Animated.View
             style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
             {this.state.wheelData.map((item: IWheelPie, i: number) => {
@@ -157,28 +157,31 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
             </Surface>
           </Animated.View>
         </View>
-        {!this.state.isInstructionOpen && (
-          <View style={styles.spinButton}>
-            <CustomButton
-              onClick={() => {
-                this.pickQuestion();
-              }}
-              text="LOSUJ PYTANIE"
-            />
-          </View>
-        )}
+        <View
+          style={[
+            styles.spinButton,
+            {opacity: this.state.isInstructionOpen ? 0 : 1},
+          ]}>
+          <CustomButton
+            onClick={() => {
+              this.pickQuestion();
+            }}
+            text="LOSUJ PYTANIE"
+          />
+        </View>
 
         {this.state.isInstructionOpen && (
           <View style={styles.instructionPageWrapper}>
             <Separator />
             <View style={styles.instructionDescriptionWrapper}>
-              <Text style={styles.instructionDescriptionText}>
-                ‣ Każdy wybiera swoje pole.
-              </Text>
-              <Text style={styles.instructionDescriptionText}>
-                ‣ Wylosowany gracz odpowiada na pytanie.
-              </Text>
-              <Separator />
+              <View>
+                <Text style={styles.instructionDescriptionText}>
+                  ‣ Każdy wybiera swoje pole.
+                </Text>
+                <Text style={styles.instructionDescriptionText}>
+                  ‣ Wylosowany gracz odpowiada na pytanie.
+                </Text>
+              </View>
               <View style={styles.closeInstructionButton}>
                 <CustomButton
                   onClick={() => {
@@ -203,18 +206,21 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
   spinner: {
     backgroundColor: '#0000', // invisible color
-    zIndex: 10,
     elevation: 1,
     marginTop: 0,
   },
   spinnerArrow: {
     position: 'absolute',
+    alignItems: 'center',
     zIndex: 20,
     elevation: 2,
     top: 0,
+    left: 0,
+    right: 0,
   },
   wheelLabels: {
     position: 'absolute',
@@ -227,39 +233,41 @@ const styles = StyleSheet.create({
     width: deviceWidth,
     height: deviceWidth,
   },
-  spinButton: {
-    position: 'absolute',
-    bottom: 30,
-  },
+  spinButton: {},
   instructionHeader: {
     fontFamily: 'babasNeue',
     fontSize: 60,
     color: 'white',
   },
   instructionPageWrapper: {
-    flex: 1,
     position: 'absolute',
-    bottom: 20,
+    flex: 1,
+    bottom: 10,
     padding: 20,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   instructionDescriptionWrapper: {
     backgroundColor: '#fafafa',
+    opacity: 0.8,
     borderRadius: 10,
-    padding: 10,
+    padding: 20,
+    paddingTop: 10,
     paddingBottom: 0,
     elevation: 4,
     flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   instructionDescriptionText: {
-    fontSize: 20,
+    fontSize: 18,
     marginTop: 5,
     color: '#4392F1',
     fontFamily: 'Simplifica',
   },
   closeInstructionButton: {
+    marginTop: 10,
+    marginBottom: -10,
     flex: 1,
     alignItems: 'center',
   },

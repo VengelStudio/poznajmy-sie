@@ -28,9 +28,8 @@ const MainNavigator = createStackNavigator(
       },
       headerTintColor: '#eee',
       headerTitleStyle: {
-        textTransform: 'uppercase',
-        fontFamily: 'babasNeue',
-        fontSize: 40,
+        textTransform: 'capitalize',
+        fontSize: 24,
         color: 'white',
       },
       headerShown: false,
@@ -64,7 +63,7 @@ class App extends React.Component {
     let filteredQuestions = shuffle(questions);
 
     if (!allowTabu) {
-      filteredQuestions = filteredQuestions.filter((question) => {
+      filteredQuestions = filteredQuestions.filter(question => {
         return question.isTabu === false;
       });
     }
