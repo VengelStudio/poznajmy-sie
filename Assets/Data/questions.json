@@ -777,11 +777,6 @@
     "isTabu": false
   },
   {
-    "text": "Czy lubisz czarny humor?",
-    "probability": 0.5,
-    "isTabu": false
-  },
-  {
     "text": "Jaką umiejętność chciałbyś/łabyś opanować do perfekcji?",
     "probability": 0.5,
     "isTabu": false
