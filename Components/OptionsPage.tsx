@@ -71,7 +71,11 @@ class OptionsPage extends Component<Props> {
                 onValueChange={this.toggleTabu}
                 value={this.state.tabu}
               />
-              <View style={styles.ageWarning}>
+              <View
+                style={[
+                  styles.ageWarning,
+                  !this.state.tabu && styles.ageWarningDisabled,
+                ]}>
                 <Text style={styles.ageWarningText}>18+</Text>
               </View>
             </View>
@@ -149,6 +153,12 @@ const styles = StyleSheet.create({
     padding: 2,
     width: 30,
     height: 30,
+  },
+  ageWarningDisabled: {
+    color: '#808808',
+    borderColor: '#555555',
+    backgroundColor: '#efefef',
+    opacity: 0.5,
   },
   optionsLabel: {
     flexDirection: 'row',
