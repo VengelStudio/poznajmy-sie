@@ -22,6 +22,7 @@ import {
   getEmojiImage,
 } from './Utilities/methods';
 import ArrowDown from './Shared/ArrowDown';
+import WheelShadowImg from '../Assets/wheelShadow.png';
 import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 import {IWheelPie} from './Utilities/models.interface';
@@ -135,6 +136,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
           <View style={[styles.spinnerArrow]}>
             <ArrowDown />
           </View>
+          <Image style={styles.spinnerShadow} source={WheelShadowImg} />
           <Animated.View
             style={[{transform: [{rotate: spin}]}, styles.wheelLabels]}>
             {this.state.wheelData.map((item: IWheelPie, i: number) => {
@@ -212,6 +214,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0000', // invisible color
     elevation: 1,
     marginTop: 0,
+    position: 'relative',
   },
   spinnerArrow: {
     position: 'absolute',
@@ -221,6 +224,12 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
+  },
+  spinnerShadow: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    opacity: 0.7,
   },
   wheelLabels: {
     position: 'absolute',
