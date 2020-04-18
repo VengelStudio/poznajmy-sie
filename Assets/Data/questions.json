@@ -860,5 +860,60 @@
     "text": "Czy chciałbyś uczestniczyć w stosunku z więcej niż jedną osobą?",
     "probability": 0.5,
     "isTabu": true
+  },
+  {
+    "text": "Czy podobał ci się kiedyś partner twojego kolegi/koleżanki?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Czy całowałeś się kiedyś z zajętą osobą?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Na wakacjach wolisz zwiedzać, czy odpoczywać?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Masz lub myślisz o tatuażu? Jaki/jakim?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy podoba/ła Ci się jakaś osoba, której wcześniej nie lubiłeś?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Gdybyś został zmuszony, jaką część ciała osoby z obecnych zjadłbyś?",
+    "probability": 0.5,
+    "isTabu": true
+  },
+  {
+    "text": "Z kim z obecnych spędziłbyś miesiąc egzotycznych wakacji?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Opowiedz o najgorszej randce, na której byłeś.",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Czy powiedziałbyś swojemu przyjacielowi, gdybyś nie znosił jego/jej partnera?",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Jakiej muzyki słuchasz po kryjomu? ",
+    "probability": 0.5,
+    "isTabu": false
+  },
+  {
+    "text": "Przez ile dni najdłużej się nie myłeś?",
+    "probability": 0.5,
+    "isTabu": true
   }
 ]
