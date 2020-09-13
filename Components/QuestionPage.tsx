@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image, Dimensions} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 import {Question} from './Utilities/data.interface';
-import CustomButton from './Shared/CustomButton';
 import Separator from './Shared/Separator';
 import {IWheelPie} from './Utilities/models.interface';
 import {getEmojiImage} from './Utilities/methods';
-
-const deviceWidth = Dimensions.get('screen').width;
 
 class QuestionPage extends Component<NavigationInjectedProps> {
   get questionText() {
@@ -51,12 +55,19 @@ class QuestionPage extends Component<NavigationInjectedProps> {
         <Separator />
         <Separator />
         <View style={styles.questionWrapper}>
+          <Text style={[styles.question, styles.inverted]}>
+            {this.questionText}
+          </Text>
           <Text style={styles.question}>{this.questionText}</Text>
         </View>
         <Separator />
         <Separator />
-        <View style={styles.closeButton}>
-          <CustomButton onClick={() => navigate('SpinPage')} text="ZAMKNIJ" />
+        <View style={styles.closeWrapper}>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => navigate('SpinPage')}
+          />
+          <Text style={styles.closeInfo}>(kliknij aby zamknąć)</Text>
         </View>
       </View>
     );
@@ -69,6 +80,7 @@ const styles = StyleSheet.create({
   questionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 4,
   },
   question: {
     fontFamily: 'Raleway-Regular',
@@ -76,18 +88,41 @@ const styles = StyleSheet.create({
     marginRight: 20,
     padding: 20,
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 24,
     backgroundColor: '#fafafa',
-    elevation: 4,
     borderRadius: 10,
   },
+  inverted: {
+    transform: [{scaleX: -1}, {scaleY: -1}],
+  },
   emojiStyle: {},
-  closeButton: {
+  closeWrapper: {
     flex: 1,
     position: 'absolute',
     alignItems: 'center',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+  closeButton: {
+    flex: 1,
+    position: 'absolute',
+    zIndex: 10,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  closeInfo: {
+    flex: 1,
+    position: 'absolute',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontSize: 15,
     left: 0,
     right: 0,
     bottom: 30,
+    color: '#555555',
   },
 });
