@@ -19,9 +19,10 @@ const CustomButton: React.FC<ButtonProps> = ({onClick, text, secondary}) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 180,
+    minWidth: 180,
     display: 'flex',
     paddingVertical: 5,
+    paddingHorizontal: 20,
     borderRadius: 40,
     borderWidth: 2,
     borderColor: 'transparent',
