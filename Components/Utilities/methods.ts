@@ -79,7 +79,7 @@ export const getEmojiImage = (index: number) => {
 };
 
 export const getRandomSpinValue = () => {
-  const val = Math.random() * (1 - 0.25) + 0.25;
+  const val = Math.random();
   return val;
 };
 

@@ -124,7 +124,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   render() {
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', '1080deg'],
+      outputRange: ['360deg', '1080deg'],
     });
 
     const x = pieSize / 2;
