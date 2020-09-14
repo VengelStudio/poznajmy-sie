@@ -66,13 +66,13 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
     if (this.state.isAnimationFinished) {
       this.setState({isAnimationFinished: false});
 
-      Animated.decay(this.state.spinValue, {velocity: 3, deceleration: 0.5});
+      Animated.decay(this.state.spinValue, {velocity: 7, deceleration: 0.25});
 
       const toValue = getRandomSpinValue();
 
       Animated.timing(this.state.spinValue, {
         toValue,
-        duration: 4000,
+        duration: 5000,
         easing: Easing.out(Easing.cubic),
         useNativeDriver: true,
       }).start(() => {
@@ -124,7 +124,7 @@ class SpinPage extends Component<NavigationInjectedProps & SpinPageProps> {
   render() {
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['360deg', '1080deg'],
+      outputRange: ['0deg', '1080deg'],
     });
 
     const x = pieSize / 2;
