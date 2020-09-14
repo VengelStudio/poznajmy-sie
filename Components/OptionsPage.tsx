@@ -97,7 +97,7 @@ class OptionsPage extends Component<Props> {
                 tabu: this.state.tabu,
               })
             }
-            text="ROZPOCZNIJ"
+            text="START"
           />
         </View>
       </View>

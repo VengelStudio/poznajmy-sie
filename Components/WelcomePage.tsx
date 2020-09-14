@@ -16,11 +16,11 @@ class WelcomePage extends Component<NavigationInjectedProps> {
         <Separator />
         <Separator />
         <View>
-          <CustomButton onClick={() => navigate('OptionsPage')} text="DALEJ" />
+          <CustomButton onClick={() => navigate('OptionsPage')} text="GRAJ" />
           <Separator />
           <CustomButton
             onClick={() => navigate('CreditsPage')}
-            text="AUTORZY"
+            text="TWÓRCY"
             secondary
           />
         </View>
