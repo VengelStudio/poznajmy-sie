@@ -11,6 +11,22 @@ const data = [
     name: 'Łukasz Blachnicki',
     task: 'Developer',
   },
+  {
+    name: 'Wiktoria Góralczyk',
+    task: 'Tester',
+  },
+  {
+    name: 'Monika Łodzińska',
+    task: 'Tester',
+  },
+  {
+    name: 'Sebastian Kula',
+    task: 'Tester',
+  },
+  {
+    name: 'Zuzanna Olasek',
+    task: 'Tester',
+  },
 ];
 
 function Item({name, task}: any) {
@@ -35,7 +51,7 @@ class CreditsPage extends Component<NavigationInjectedProps> {
         <FlatList
           data={data}
           renderItem={({item}) => <Item name={item.name} task={item.task} />}
-          keyExtractor={(item) => item.name}
+          keyExtractor={item => item.name}
         />
       </SafeAreaView>
     );
