@@ -40,7 +40,7 @@ function Item({name, task}: any) {
 
 class CreditsPage extends Component<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'Autorzy',
+    title: 'Twórcy',
     headerShown: true,
   };
 
@@ -70,13 +70,13 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#ffff',
-    padding: 20,
+    padding: 8,
     marginVertical: 8,
     marginHorizontal: 16,
     elevation: 4,
   },
   name: {
-    fontSize: 32,
+    fontSize: 24,
     textAlign: 'center',
   },
   task: {
