@@ -28,38 +28,34 @@ class QuestionPage extends Component<NavigationInjectedProps> {
     return (this.props.navigation.state.params as any).index;
   }
 
-  dynamicStyles() {
-    const styles = StyleSheet.create({
-      questionWrapperStyles: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderStyle: 'solid',
-      },
-      questionMarkColorStyle: {
-        tintColor: this.winner.color,
-      },
-    });
-
-    return styles;
-  }
-
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View style={this.dynamicStyles().questionWrapperStyles}>
-        <View>
-          <Image style={styles.emojiStyle} source={getEmojiImage(this.index)} />
-        </View>
-        <Separator />
-        <Separator />
+      <View style={styles.questionWrapperStyles}>
         <View style={styles.questionWrapper}>
-          <Text style={[styles.question, styles.inverted]}>
-            {this.questionText}
-          </Text>
-          <Text style={styles.question}>{this.questionText}</Text>
+          <View style={[styles.question]}>
+            <Text style={[styles.questionText, styles.padding, styles.shadow]}>
+              {this.questionText}
+            </Text>
+          </View>
+
+          <Separator />
+          <Image style={styles.emojiStyle} source={getEmojiImage(this.index)} />
+          <Separator />
+
+          {/* <View style={styles.shadow}>
+            <View style={[styles.inverted]}>
+              <Text style={[styles.question]}>{this.questionText}</Text>
+            </View>
+          </View> */}
+
+          <View style={[styles.shadow, styles.question, styles.padding]}>
+            <View style={[styles.inverted]}>
+              <Text style={styles.questionText}>{this.questionText}</Text>
+            </View>
+          </View>
         </View>
+
         <Separator />
         <Separator />
         <View style={styles.closeWrapper}>
@@ -77,23 +73,38 @@ class QuestionPage extends Component<NavigationInjectedProps> {
 export default withNavigation(QuestionPage);
 
 const styles = StyleSheet.create({
+  questionWrapperStyles: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderStyle: 'solid',
+  },
   questionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 4,
   },
-  question: {
+  questionText: {
     fontFamily: 'Raleway-Regular',
-    marginLeft: 20,
-    marginRight: 20,
-    padding: 20,
     textAlign: 'center',
     fontSize: 24,
+  },
+  question: {
     backgroundColor: '#fafafa',
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  padding: {
+    padding: 20,
     borderRadius: 10,
   },
   inverted: {
     transform: [{scaleX: -1}, {scaleY: -1}],
+  },
+  shadow: {
+    elevation: 4,
+    backgroundColor: '#fafafa',
+    position: 'relative',
   },
   emojiStyle: {},
   closeWrapper: {

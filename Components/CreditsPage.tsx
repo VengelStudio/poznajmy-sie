@@ -47,7 +47,7 @@ class CreditsPage extends Component<NavigationInjectedProps> {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
         <FlatList
           data={data}
           renderItem={({item}) => <Item name={item.name} task={item.task} />}
@@ -64,9 +64,6 @@ const styles = StyleSheet.create({
   entryText: {
     fontSize: 42,
     textAlign: 'center',
-  },
-  container: {
-    paddingBottom: 60,
   },
   item: {
     backgroundColor: '#ffff',
